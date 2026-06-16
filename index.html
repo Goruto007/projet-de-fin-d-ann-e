@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vente et location d'instruments de musique">
+    <meta name="keywords" content="musique, instruments, vente, location">
+    <title>Chris & Compagnie - Accueil</title>
+    <link rel="stylesheet" href="dossier css/index.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+                <span class="logo-mark">♪</span>
+                <span>Chris &amp; Compagnie</span>
+            </a>
+
+            <ul class="menu">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="vente.html">Vente</a></li>
+                <li><a href="maintenance.html">Maintenance</a></li>
+                <li><a href="utilisateur.html">Compte</a></li>
+                <li class="cart-item">
+                    <a href="panier.html" aria-label="Voir le panier">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <span class="eyebrow">Vente, location et entretien</span>
+                    <h1>La musique commence ici.</h1>
+                    <p>
+                        Découvrez des instruments choisis avec soin pour les débutants,
+                        les passionnés et les musiciens confirmés.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="vente.html">Explorer la boutique</a>
+                        <a class="btn btn-secondary" href="location.html">Voir les locations</a>
+                    </div>
+                </div>
+
+                <aside class="hero-panel" aria-label="Points forts">
+                    <div class="panel-card">
+                        <span class="panel-label">Qualité</span>
+                        <strong>Instruments sélectionnés</strong>
+                        <p>Des modèles fiables pour tous les styles et tous les niveaux.</p>
+                    </div>
+                    <div class="panel-card">
+                        <span class="panel-label">Flexibilité</span>
+                        <strong>Achat ou location</strong>
+                        <p>Choisissez la formule qui correspond à votre projet musical.</p>
+                    </div>
+                    <div class="panel-card">
+                        <span class="panel-label">Service</span>
+                        <strong>Entretien sur mesure</strong>
+                        <p>Un accompagnement simple pour garder vos instruments en forme.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="section-heading">
+                <span class="section-kicker">À propos</span>
+                <h2>Bienvenue chez Chris &amp; Compagnie</h2>
+            </div>
+
+            <div class="about-content">
+                <p>
+                    Votre destination incontournable pour la vente et la location d'instruments de musique.
+                    Nous proposons une large gamme d'instruments de qualité pour tous les niveaux, que vous
+                    soyez débutant ou professionnel.
+                </p>
+                <p>
+                    Explorez notre catalogue en ligne pour trouver l'instrument parfait qui correspond à vos
+                    besoins et à votre style musical. Chez Chris &amp; Compagnie, nous sommes passionnés par la
+                    musique et nous nous engageons à offrir un service exceptionnel à nos clients.
+                </p>
+                <p>
+                    N'hésitez pas à nous contacter pour toute question ou demande spéciale. Faites de la musique
+                    avec Chris &amp; Compagnie !
+                </p>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="section-heading">
+                <span class="section-kicker">Services</span>
+                <h2>Tout ce qu’il faut pour jouer sereinement</h2>
+            </div>
+
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>Vente d'instruments</h3>
+                    <p>
+                        Découvrez notre sélection complète d'instruments de musique neufs et d'occasion de
+                        qualité professionnelle.
+                    </p>
+                    <a href="vente.html" class="btn-service">Voir nos produits</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🎸</div>
+                    <h3>Location d'instruments</h3>
+                    <p>
+                        Louez l'instrument de vos rêves sans engagement. Parfait pour essayer avant d'acheter
+                        ou pour une utilisation temporaire.
+                    </p>
+                    <a href="location.html" class="btn-service">Consulter les locations</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Maintenance et réparation</h3>
+                    <p>
+                        Nos experts assurent l'entretien et la réparation de vos instruments pour une qualité
+                        sonore optimale.
+                    </p>
+                    <a href="maintenance.html" class="btn-service">En savoir plus</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <section class="footer-section">
+                <h4>Contact</h4>
+                <p>Email : cymukwkungu@gmail.com</p>
+                <p>Téléphone : +243 972 693 813</p>
+            </section>
+
+            <section class="footer-section">
+                <h4>Horaires</h4>
+                <p>Lundi - samedi : 9h - 18h</p>
+                <p>Dimanche : 13h - 17h</p>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        const cartBadge = document.querySelector('.cart-badge');
+
+        function updateBadge() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartBadge.textContent = cart.length;
+        }
+
+        updateBadge();
+        window.addEventListener('storage', updateBadge);
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+@import url("theme.css");
+
+.propositions {
+    padding: 0;
+}
+
+.categories-grid,
+.instruments-grid,
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    min-height: 210px;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    color: var(--text);
+    font-size: 3.6rem;
+    background:
+        linear-gradient(135deg, rgba(244, 201, 93, 0.16), rgba(110, 231, 183, 0.12)),
+        rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-image img,
+.image {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.card h3 {
+    padding: 1.2rem 1.2rem 0.5rem;
+    color: var(--text);
+    font-size: 1.25rem;
+}
+
+.card .description {
+    padding: 0 1.2rem;
+    flex: 1;
+}
+
+.card .specs {
+    margin: 1.1rem 1.2rem 0;
+    padding-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card .specs span {
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+}
+
+.price-section {
+    padding: 1.2rem;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.price {
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.btn-louer,
+.btn-louer a {
+    width: 100%;
+}
+
+.avantages {
+    padding: 0;
+}
+
+.benefit {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.benefit-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0 auto 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    color: #141414;
+    background: linear-gradient(135deg, var(--accent), #ffd98f);
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+
+.benefit h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-size: 1.08rem;
+}
+
+@media (max-width: 640px) {
+    .categories-grid,
+    .instruments-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}

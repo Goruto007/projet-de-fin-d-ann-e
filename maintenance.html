@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Maintenance et réparation d'instruments musicaux - Chris & Compagnie</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Services de maintenance et réparation d'instruments musicaux">
+        <meta name="keywords" content="maintenance, réparation, instruments, musique">
+        <link rel="stylesheet" href="../dossier css/maintenance.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+                    <span class="logo-mark">♪</span>
+                    <span>Chris &amp; Compagnie</span>
+                </a>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="vente.html">Vente</a></li>
+                    <li><a href="maintenance.html" class="active">Maintenance</a></li>
+                    <li><a href="utilisateur.html">Utilisateurs</a></li>
+                    <li class="cart-item"><a href="panier.html"><span class="cart-icon">🛒</span><span class="cart-badge">0</span></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>Maintenance et Réparation</h1>
+                <p>Confiez vos instruments à nos experts qualifiés</p>
+            </section>
+
+            <section class="intro">
+                <div class="intro-content">
+                    <h2>Services de maintenance et réparation</h2>
+                    <p>Vos instruments méritent le meilleur entretien ! Chez Chris & Compagnie, nos techniciens expérimentés prennent soin de tous vos instruments musicaux avec passion et professionnalisme.</p>
+                    <p>Qu'il s'agisse d'une révision complète, d'une réparation urgente ou d'un simple entretien, nous saurons vous offrir un service de qualité adaptés à vos besoins.</p>
+                </div>
+            </section>
+
+            <section class="services-maintenance">
+                <h2>Nos services</h2>
+                <div class="services-grid">
+                 
+            </section>
+
+            <section class="process">
+                <h2>Comment ça fonctionne ?</h2>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Apportez votre instrument</h4>
+                        <p>Déposez votre instrument à notre atelier ou demandez un retrait à domicile.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Diagnostic gratuit</h4>
+                        <p>Nos experts examinent votre instrument et vous proposent un devis détaillé.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Réparation</h4>
+                        <p>Nous effectuons la réparation avec soin et attention aux détails.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Récupération</h4>
+                        <p>Récupérez votre instrument restauré avec garantie 6 mois.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="advantages">
+                <h2>Pourquoi nous choisir ?</h2>
+                <div class="advantages-grid">
+                    <div class="advantage">
+                        <div class="advantage-icon">✓</div>
+                        <h4>Experts qualifiés</h4>
+                        <p>Techniciens certifiés avec plus de 15 ans d'expérience</p>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage-icon">✓</div>
+                        <h4>Pièces authentiques</h4>
+                        <p>Utilisation de pièces de qualité originales ou équivalentes</p>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage-icon">✓</div>
+                        <h4>Garantie 6 mois</h4>
+                        <p>Garantie sur tous nos travaux de réparation et maintenance</p>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage-icon">✓</div>
+                        <h4>Tarifs compétitifs</h4>
+                        <p>Meilleurs prix du marché avec qualité garantie</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-section">
+                <h2>Contactez-nous pour un diagnostic gratuit</h2>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Votre téléphone" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Description de votre instrument et du problème" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Demander un diagnostic</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: cymukwakungu@gmail.com</p>
+                    <p>Téléphone: +243 972 693 813</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <h4>Horaires</h4>
+                    <p>Lundi - samedi: 9h - 18h</p>
+                    <p>Dimanche: 13h - 17h</p>
+                </div>  
+            </div>
+        </footer>
+
+        <script>
+            // Synchronisation du badge du panier
+            const cartBadge = document.querySelector('.cart-badge');
+            
+            function updateBadge() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cartBadge.textContent = cart.length;
+            }
+            
+            // Mettre à jour au chargement
+            updateBadge();
+            
+            // Écouter les changements de localStorage
+            window.addEventListener('storage', updateBadge);
+        </script>
+    </body>
+</html>

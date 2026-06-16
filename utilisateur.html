@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Espace utilisateur Chris & Compagnie">
+    <title>Espace utilisateur - Chris & Compagnie</title>
+    <link rel="stylesheet" href="dossier css/utilisateur.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="logo" href="index.html" aria-label="Retour a l'accueil">
+                <span class="logo-mark">♪</span>
+                <span>Chris &amp; Compagnie</span>
+            </a>
+
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="vente.html">Vente</a></li>
+                <li><a href="maintenance.html">Maintenance</a></li>
+                <li><a href="utilisateur.html" class="active">Compte</a></li>
+                <li class="cart-item">
+                    <a href="panier.html" aria-label="Voir le panier">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-hero">
+            <div class="profile-intro">
+                <p class="eyebrow">Espace utilisateur</p>
+                <h1>Bonjour, <span id="display-name">musicien</span></h1>
+                <p>Retrouvez vos informations, votre panier et vos raccourcis pour continuer vos achats, locations ou demandes de maintenance.</p>
+            </div>
+
+            <div class="profile-card">
+                <div class="avatar" id="avatar-initials">CC</div>
+                <div>
+                    <p class="profile-label">Compte client</p>
+                    <h2 id="profile-full-name">Chris & Compagnie</h2>
+                    <p id="profile-email">Aucun email enregistre</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard">
+            <article class="summary-card">
+                <span class="summary-value" id="cart-count">0</span>
+                <h3>Articles au panier</h3>
+                <p>Consultez vos instruments selectionnes avant de finaliser votre commande.</p>
+                <a href="panier.html">Voir le panier</a>
+            </article>
+
+            <article class="summary-card">
+                <span class="summary-value">3</span>
+                <h3>Services disponibles</h3>
+                <p>Vente, location et maintenance sont accessibles depuis votre espace.</p>
+                <a href="maintenance.html">Demander un service</a>
+            </article>
+
+            <article class="summary-card">
+                <span class="summary-value">24h</span>
+                <h3>Reponse client</h3>
+                <p>Contactez-nous pour une question sur un instrument ou une commande.</p>
+                <a href="#contact">Nous contacter</a>
+            </article>
+        </section>
+
+        <section class="account-grid">
+            <article class="account-panel">
+                <div class="section-title">
+                    <p class="eyebrow">Profil</p>
+                    <h2>Mes informations</h2>
+                </div>
+
+                <form class="profile-form" id="profile-form">
+                    <div class="field-row">
+                        <label for="first-name">Prenom</label>
+                        <input type="text" id="first-name" name="firstName" placeholder="Votre prenom">
+                    </div>
+
+                    <div class="field-row">
+                        <label for="last-name">Nom</label>
+                        <input type="text" id="last-name" name="lastName" placeholder="Votre nom">
+                    </div>
+
+                    <div class="field-row">
+                        <label for="username">Nom d'utilisateur</label>
+                        <input type="text" id="username" name="username" placeholder="Votre pseudo">
+                    </div>
+
+                    <div class="field-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="exemple@email.com">
+                    </div>
+
+                    <div class="field-row full">
+                        <label for="address">Adresse</label>
+                        <input type="text" id="address" name="address" placeholder="N°, avenue, quartier, commune">
+                    </div>
+
+                    <button type="submit" class="primary-btn">Enregistrer les modifications</button>
+                </form>
+            </article>
+
+            <aside class="account-panel quick-actions">
+                <div class="section-title">
+                    <p class="eyebrow">Actions</p>
+                    <h2>Raccourcis</h2>
+                </div>
+
+                <a class="action-link" href="vente.html">
+                    <span>Achat</span>
+                    <strong>Explorer les instruments a vendre</strong>
+                </a>
+
+                <a class="action-link" href="location.html">
+                    <span>Location</span>
+                    <strong>Trouver un instrument a louer</strong>
+                </a>
+
+                <a class="action-link" href="maintenance.html">
+                    <span>Maintenance</span>
+                    <strong>Preparer une demande de reparation</strong>
+                </a>
+
+                <button class="secondary-btn" id="logout-btn" type="button">Se deconnecter</button>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <section>
+                <h4>Contact</h4>
+                <p>Email : cymukwkungu@gmail.com</p>
+                <p>Telephone : +243 972 693 813</p>
+            </section>
+
+            <section>
+                <h4>Horaires</h4>
+                <p>Lundi - samedi : 9h - 18h</p>
+                <p>Dimanche : 13h - 17h</p>
+            </section>
+        </div>
+    </footer>
+
+    <script src="dossier javascript/utilisateur.js"></script>
+</body>
+</html>
