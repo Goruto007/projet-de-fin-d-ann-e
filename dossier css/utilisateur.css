@@ -105,7 +105,6 @@ a {
     justify-content: center;
     border-radius: 7px;
     color: var(--muted);
-    font-weight: 700;
     transition: background 0.2s ease, color 0.2s ease;
 }
 

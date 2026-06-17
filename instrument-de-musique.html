@@ -9,12 +9,20 @@
         <link rel="stylesheet" href="dossier css/intstrument.css">
     </head>
     <body>
-        <header>
+        <header class="site-header">
             <nav class="navbar">
-                <h1 class="logo">🎵 chris & Compagnie</h1>
+                 <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+                    <span class="logo-mark">♪</span>
+                    <span>Chris &amp; Compagnie</span>
+                 </a>
+
                 <ul>
-                    
-                     <li class="cart-item"><a href="panier.html"><span class="cart-icon">🛒</span><span class="cart-badge">0</span></a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="vente.html" class="active">Vente</a></li>
+                    <li><a href="maintenance.html">Maintenance</a></li>
+                    <li><a href="utilisateur.html">compte</a></li>
+                    <li class="cart-item"><a href="panier.html"><span class="cart-icon">🛒</span><span class="cart-badge">0</span></a></li>
                 </ul>
             </nav>
         </header>
@@ -92,8 +100,6 @@
                 
             </div>
         </footer>
-    
-
-        
+        <script src="../dossier javascript/vente.js"></script>   
     </body>
 </html>
