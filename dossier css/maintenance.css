@@ -90,6 +90,7 @@
 
 .form-group {
     display: grid;
+    padding: 8px;
 }
 
 .form-group textarea {
