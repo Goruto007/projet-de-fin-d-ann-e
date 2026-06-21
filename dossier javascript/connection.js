@@ -1,3 +1,4 @@
+// afficher les mots de passses
 function afficherMotdePasse() {
     const input = document.getElementById("login-password");
     const button = event.target;
@@ -23,7 +24,7 @@ function afficherMotdePasse2() {
         button.textContent = "🔓";
     }
 }
-
+// inscription et connection
 function getUsers() {
     return JSON.parse(localStorage.getItem("utilisateurs")) || [];
 }
@@ -31,7 +32,7 @@ function getUsers() {
 function saveUsers(users) {
     localStorage.setItem("utilisateurs", JSON.stringify(users));
 }
-
+// tableau d'insscption
 function enregistrerUtilisateur() {
     const nouvelUtilisateur = {
         nomUtilisateur: document.getElementById("username").value.trim(),
@@ -43,10 +44,11 @@ function enregistrerUtilisateur() {
     };
 
     const users = getUsers();
-    const existingIndex = users.findIndex((user) => user.email === nouvelUtilisateur.email);
+    const existingIndex = users.find((user) => user.email === nouvelUtilisateur.email);
 
-    if (existingIndex >= 0) {
+    if (existingIndex) {
         users[existingIndex] = nouvelUtilisateur;
+        alert("Votre utilisateur connectez vous")
     } else {
         users.push(nouvelUtilisateur);
     }
@@ -70,17 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (user) {
             localStorage.setItem("currentUser", JSON.stringify(user));
+            window.location.href = "utilisateur.html";
         } else {
-            localStorage.setItem("currentUser", JSON.stringify({
-                nomUtilisateur: "musicien",
-                prenom: "",
-                nom: "",
-                email,
-                adresse: ""
-            }));
-        }
+        alert("email incorrect ou mot de passe incoorrect");   
+        };
+        
 
-        window.location.href = "utilisateur.html";
+        
     });
 
     registerForm.addEventListener("submit", (event) => {
