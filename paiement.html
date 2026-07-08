@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paiement sécurisé - Chris & Compagnie">
+    <title>Paiement - Chris & Compagnie</title>
+    <link rel="stylesheet" href="dossier css/paiement.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+                <span class="logo-mark">♪</span>
+                <span>Chris &amp; Compagnie</span>
+            </a>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="vente.html">Vente</a></li>
+                <li><a href="maintenance.html">Maintenance</a></li>
+                <li><a href="utilisateur.html">Compte</a></li>
+                <li class="cart-item">
+                    <a href="panier.html">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Paiement sécurisé</h1>
+            <p>Finalisez votre commande en toute confiance</p>
+        </section>
+
+        <div class="payment-container">
+            <!-- Résumé de commande -->
+            <section class="order-summary">
+                <h2>Résumé de commande</h2>
+                <div class="summary-content">
+                    <div id="order-items" class="order-items">
+                        <!-- Les articles seront insérés ici par JavaScript -->
+                    </div>
+                    <div class="summary-totals">
+                        <div class="summary-row">
+                            <span>Sous-total:</span>
+                            <span id="summary-subtotal">0,00 €</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Livraison:</span>
+                            <span id="summary-shipping">Gratuit</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>TVA (16%):</span>
+                            <span id="summary-tax">0,00 €</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total à payer:</span>
+                            <span id="summary-total">0,00 €</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulaire de paiement -->
+            <section class="payment-form-section">
+                <h2>Informations de paiement</h2>
+                
+                <form id="payment-form" class="payment-form">
+                    <!-- Informations personnelles -->
+                    <fieldset class="form-section">
+                        <legend>Informations personnelles</legend>
+                        <div class="form-grid">
+                            <div class="field-row">
+                                <label for="first-name">Prénom *</label>
+                                <input type="text" id="first-name" name="firstName" placeholder="Jean" required>
+                                <span class="error-message" id="error-first-name"></span>
+                            </div>
+                            <div class="field-row">
+                                <label for="last-name">Nom *</label>
+                                <input type="text" id="last-name" name="lastName" placeholder="Dupont" required>
+                                <span class="error-message" id="error-last-name"></span>
+                            </div>
+                        </div>
+                        <div class="field-row">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="jean@example.com" required>
+                            <span class="error-message" id="error-email"></span>
+                        </div>
+                        <div class="field-row">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+243 972 693 813" required>
+                            <span class="error-message" id="error-phone"></span>
+                        </div>
+                    </fieldset>
+
+                    <!-- Adresse de livraison -->
+                    <fieldset class="form-section">
+                        <legend>Adresse de livraison</legend>
+                        <div class="field-row">
+                            <label for="address">Adresse *</label>
+                            <input type="text" id="address" name="address" placeholder="123 rue de la Paix" required>
+                            <span class="error-message" id="error-address"></span>
+                        </div>
+                        <div class="form-grid">
+                            <div class="field-row">
+                                <label for="city">Ville *</label>
+                                <input type="text" id="city" name="city" placeholder="Kinshasa" required>
+                                <span class="error-message" id="error-city"></span>
+                            </div>
+                            <div class="field-row">
+                                <label for="postal-code">Code postal *</label>
+                                <input type="text" id="postal-code" name="postalCode" placeholder="1200" required>
+                                <span class="error-message" id="error-postal-code"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Informations de paiement -->
+                    <fieldset class="form-section">
+                        <legend>Carte bancaire</legend>
+                        <div class="field-row">
+                            <label for="card-holder">Titulaire de la carte *</label>
+                            <input type="text" id="card-holder" name="cardHolder" placeholder="JEAN DUPONT" required>
+                            <span class="error-message" id="error-card-holder"></span>
+                        </div>
+                        <div class="field-row">
+                            <label for="card-number">Numéro de carte *</label>
+                            <input type="text" id="card-number" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                            <span class="error-message" id="error-card-number"></span>
+                            <small>Numéro de carte de test: 4111 1111 1111 1111</small>
+                        </div>
+                        <div class="form-grid">
+                            <div class="field-row">
+                                <label for="expiry">Expiration (MM/AA) *</label>
+                                <input type="text" id="expiry" name="expiry" placeholder="12/25" maxlength="5" required>
+                                <span class="error-message" id="error-expiry"></span>
+                            </div>
+                            <div class="field-row">
+                                <label for="cvv">CVV *</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+                                <span class="error-message" id="error-cvv"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Conditions -->
+                    <div class="field-row checkbox">
+                        <label>
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span>J'accepte les conditions générales de vente *</span>
+                        </label>
+                        <span class="error-message" id="error-terms"></span>
+                    </div>
+
+                    <!-- Boutons d'action -->
+                    <div class="form-actions">
+                        <a href="panier.html" class="btn-secondary">Retour au panier</a>
+                        <button type="submit" class="btn-primary" id="submit-btn">Payer maintenant</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <!-- Modal de confirmation -->
+        <div id="payment-modal" class="payment-modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Traitement du paiement</h2>
+                    <button type="button" class="modal-close" id="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="modal-message"></div>
+                    <div id="modal-loading" class="loading-spinner"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-primary" id="modal-action">Continuer</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <section class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: cymukwkungu@gmail.com</p>
+                <p>Téléphone: +243 972 693 813</p>
+            </section>
+            <section class="footer-section">
+                <h4>Horaires</h4>
+                <p>Lundi - samedi: 9h - 18h</p>
+                <p>Dimanche: 13h - 17h</p>
+            </section>
+        </div>
+    </footer>
+
+    <script src="dossier javascript/paiement.js"></script>
+</body>
+</html>
