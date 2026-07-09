@@ -120,3 +120,5 @@ const checkoutBtn = document.getElementById('checkout-btn');
         // Rediriger vers le paiement
         window.location.href = 'paiement.html';
     });
+
+    

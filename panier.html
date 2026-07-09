@@ -118,43 +118,44 @@
             <p class="copyright">&copy; 2026 Chris & Compagnie. Tous droits réservés.</p>
         </footer>
 
+        
         <script src="dossier javascript/panier.js"></script>
         <script>
-            // ============================================
-            // GESTION DU BOUTON PAIEMENT
-            // ============================================
-            const checkoutBtn = document.getElementById('checkout-btn');
+             // ============================================
+    // GESTION DU BOUTON PAIEMENT
+    // ============================================
+        const checkoutBtn = document.getElementById('checkout-btn');
 
-            checkoutBtn.addEventListener('click', (e) => {
-                e.preventDefault();
+        checkoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
 
-                // Vérifier si le panier est vide
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                if (cart.length === 0) {
-                    alert('Votre panier est vide!');
-                    return;
+    // Vérifier si le panier est vide
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                alert('Votre panier est vide!');
+            return;
                 }
 
-                // Vérifier si l'utilisateur est connecté
-                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    // Vérifier si l'utilisateur est connecté
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
                 
-                if (!currentUser || !currentUser.email) {
-                    // L'utilisateur n'est pas connecté
-                    const confirmMessage = 'Vous devez être connecté pour accéder au paiement.\n\nVoulez-vous vous connecter maintenant?';
+            if (!currentUser || !currentUser.email) {
+    // L'utilisateur n'est pas connecté
+            const confirmMessage = 'Vous devez être connecté pour accéder au paiement.\n\nVoulez-vous vous connecter maintenant?';
                     
-                    if (confirm(confirmMessage)) {
-                        // Rediriger vers la page de connexion
-                        window.location.href = 'page_de_connection.html';
-                    }
-                    return;
+            if (confirm(confirmMessage)) {
+    // Rediriger vers la page de connexion
+                window.location.href = 'page_de_connection.html';
+    }
+            return;
                 }
 
-                // L'utilisateur est connecté et le panier n'est pas vide
-                // Rediriger vers la page de paiement
+    // L'utilisateur est connecté et le panier n'est pas vide
+    // Rediriger vers la page de paiement
                 window.location.href = 'paiement.html';
             });
 
-            // Style du bouton pour indiquer qu'il est interactif
+    // Style du bouton pour indiquer qu'il est interactif
             checkoutBtn.style.cursor = 'pointer';
             checkoutBtn.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
 
@@ -166,5 +167,7 @@
                 checkoutBtn.style.transform = 'translateY(0)';
             });
         </script>
+           
+     
     </body>
 </html>
