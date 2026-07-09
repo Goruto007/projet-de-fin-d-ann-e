@@ -55,6 +55,7 @@ function enregistrerUtilisateur() {
 
     saveUsers(users);
     localStorage.setItem("currentUser", JSON.stringify(nouvelUtilisateur));
+    localStorage.setItem('currentUser', JSON.stringify(user));
     return nouvelUtilisateur;
 }
 
@@ -87,3 +88,4 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "utilisateur.html";
     });
 });
+

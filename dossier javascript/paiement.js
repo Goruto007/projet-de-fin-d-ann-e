@@ -19,11 +19,20 @@ const modalClose = document.getElementById('modal-close');
 // INITIALISATION
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Vérifier la connexion de l'utilisateur
+    const isConnected = checkUserConnection();
+    
     loadCart();
     setupFormFormatting();
     setupFormValidation();
     setupFormSubmission();
     updateCartBadge();
+
+    // Ajouter une classe au formulaire si pas connecté
+    if (!isConnected) {
+        paymentForm.style.opacity = '0.6';
+        paymentForm.style.pointerEvents = 'none';
+    }
 });
 
 // ============================================
@@ -272,6 +281,21 @@ function setupFormSubmission() {
     paymentForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Vérifier d'abord la connexion
+        if (!checkUserConnection()) {
+            alert('Veuillez vous connecter avant de continuer');
+            window.location.href = 'page_de_connection.html';
+            return;
+        }
+
+        // Vérifier que le panier n'est pas vide
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cart.length === 0) {
+            alert('Votre panier est vide!');
+            window.location.href = 'panier.html';
+            return;
+        }
+
         // Valider tous les champs
         const inputs = paymentForm.querySelectorAll('input[required]');
         let isFormValid = true;
@@ -452,14 +476,72 @@ function updateCartBadge() {
 // ============================================
 window.addEventListener('storage', updateCartBadge);
 
-// Remplissage automatique depuis l'utilisateur connecté (optionnel)
+// ============================================
+// REMPLISSAGE AUTOMATIQUE UTILISATEUR
+// ============================================
 window.addEventListener('load', () => {
+    // Vérifier si l'utilisateur est connecté
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     
-    if (currentUser) {
-        document.getElementById('first-name').value = currentUser.prenom || '';
-        document.getElementById('last-name').value = currentUser.nom || '';
-        document.getElementById('email').value = currentUser.email || '';
-        document.getElementById('address').value = currentUser.adresse || '';
+    if (!currentUser || !currentUser.email) {
+        console.warn('Utilisateur non connecté. Redirection vers la connexion...');
+        // Optionnel: rediriger vers la connexion
+        // window.location.href = 'page_de_connection.html';
+        // return;
     }
+
+    // Récupérer les données de l'utilisateur
+    const userData = currentUser || JSON.parse(localStorage.getItem('utilisateurs'))?.[0] || {};
+
+    // Pré-remplir les champs avec les données de l'utilisateur
+    if (userData.prenom) {
+        document.getElementById('first-name').value = userData.prenom.trim();
+    }
+    
+    if (userData.nom) {
+        document.getElementById('last-name').value = userData.nom.trim();
+    }
+    
+    if (userData.email) {
+        document.getElementById('email').value = userData.email.trim();
+    }
+    
+    // Pré-remplir l'adresse si disponible
+    if (userData.adresse) {
+        document.getElementById('address').value = userData.adresse.trim();
+    }
+
+    // Pré-remplir le titulaire de la carte avec le nom complet
+    if (userData.prenom && userData.nom) {
+        const fullName = `${userData.nom.toUpperCase()} ${userData.prenom.toUpperCase()}`;
+        document.getElementById('card-holder').value = fullName;
+    }
+
+    console.log('✓ Formulaire pré-rempli avec les données utilisateur');
 });
+
+// ============================================
+// VÉRIFICATION DE CONNEXION
+// ============================================
+function checkUserConnection() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const authWarning = document.getElementById('auth-warning');
+    
+    if (!currentUser || !currentUser.email) {
+        // Afficher le message d'avertissement
+        if (authWarning) {
+            authWarning.style.display = 'block';
+        }
+        
+        console.warn('⚠️ Utilisateur non connecté');
+        return false;
+    }
+    
+    // L'utilisateur est connecté
+    if (authWarning) {
+        authWarning.style.display = 'none';
+    }
+    
+    console.log('✓ Utilisateur connecté:', currentUser.email);
+    return true;
+}

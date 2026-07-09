@@ -36,6 +36,35 @@
             <p>Finalisez votre commande en toute confiance</p>
         </section>
 
+        <!-- Message d'avertissement si pas connecté -->
+        <div id="auth-warning" style="display: none; margin-bottom: 2rem;">
+            <div style="
+                background: rgba(255, 107, 107, 0.1);
+                border: 1px solid #ff6b6b;
+                border-radius: 12px;
+                padding: 1.5rem;
+                color: #ff9999;
+                text-align: center;
+                max-width: 1200px;
+                margin: 0 auto;
+            ">
+                <p style="margin: 0 0 0.5rem 0; font-weight: 700;">⚠️ Vous n'êtes pas connecté</p>
+                <p style="margin: 0 0 1rem 0;">Veuillez vous connecter pour accéder au paiement et bénéficier du pré-remplissage automatique de vos informations.</p>
+                <a href="page_de_connection.html" style="
+                    display: inline-block;
+                    background: linear-gradient(135deg, #ff6b6b, #ff9f43);
+                    color: white;
+                    padding: 0.8rem 2rem;
+                    border-radius: 999px;
+                    text-decoration: none;
+                    font-weight: 700;
+                    transition: transform 0.2s ease;
+                " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    Se connecter maintenant
+                </a>
+            </div>
+        </div>
+
         <div class="payment-container">
             <!-- Résumé de commande -->
             <section class="order-summary">

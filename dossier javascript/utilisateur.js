@@ -107,3 +107,5 @@ logoutBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("storage", updateCart);
+
+

@@ -95,3 +95,28 @@ document.getElementById('checkout-btn').addEventListener('click', function() {
 
 // Charger le panier au chargement de la page
 loadCart();
+const checkoutBtn = document.getElementById('checkout-btn');
+
+    checkoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Vérifier si le panier est vide
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cart.length === 0) {
+            alert('Votre panier est vide!');
+            return;
+        }
+
+        // Vérifier si l'utilisateur est connecté
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        
+        if (!currentUser || !currentUser.email) {
+            if (confirm('Vous devez être connecté pour accéder au paiement.\n\nVoulez-vous vous connecter maintenant?')) {
+                window.location.href = 'page_de_connection.html';
+            }
+            return;
+        }
+
+        // Rediriger vers le paiement
+        window.location.href = 'paiement.html';
+    });
