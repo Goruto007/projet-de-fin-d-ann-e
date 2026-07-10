@@ -1,0 +1,31 @@
+objectifs spécifiques
+
+<Objectifs spécifiques
+•	Faciliter le commerce d'instruments de musique en proposant un catalogue en ligne structuré, avec des informations claires sur les produits, les prix et les disponibilités.
+•	Fournir une plateforme accessible à tous, qu'il s'agisse de musiciens professionnels, d'amateurs ou de débutants, grâce à une interface intuitive et adaptée à différents niveaux d'utilisateurs.
+•	Offrir un service de location d'instruments, permettant aux utilisateurs d'accéder à du matériel de qualité sans nécessairement procéder à un achat définitif.
+•	Assister les musiciens dans la maintenance de leurs instruments, en fournissant des informations pratiques et en mettant en relation les utilisateurs avec les services d'entretien appropriés.
+•	Permettre la génération de devis rapides, afin que chaque utilisateur puisse estimer en temps réel le coût d'un achat, d'une location ou d'une intervention de maintenance.
+•	Centraliser l'offre musicale locale au sein d'un espace numérique unique, structuré et fiable, contribuant ainsi à la structuration du marché des instruments de musique en RDC.
+>
+
+historique du e-commerce
+
+<1.2 Historique du e-commerce
+Le commerce électronique trouve ses origines dans les années 1970, avec l'apparition des premiers échanges de données informatisés entre entreprises (EDI — Electronic Data Interchange). Cependant, c'est avec la démocratisation d'Internet dans les années 1990 que le e-commerce prend véritablement son essor. En 1994, la première transaction sécurisée en ligne est enregistrée aux États-Unis, ouvrant la voie à des géants tels qu'Amazon (1995) et eBay (1995).
+
+Dans les années 2000, le e-commerce connaît une croissance exponentielle portée par la généralisation de l'accès à Internet, la sécurisation des paiements en ligne et l'essor des téléphones intelligents. En Afrique, cette dynamique s'amorce plus tardivement, mais progresse rapidement depuis les années 2010 grâce à la pénétration du mobile et au développement de solutions de paiement adaptées aux réalités locales.
+
+En RDC, bien que le secteur soit encore en phase d'émergence, les opportunités sont considérables. Le développement de plateformes spécialisées comme celle proposée dans ce projet s'inscrit dans cette dynamique de structuration progressive du commerce en ligne sur le marché congolais.
+>
+
+perspective et amélioration
+
+<Perspectives et améliorations futures
+Bien que fonctionnelle dans sa version actuelle, la plateforme Chris & Compagnie offre de nombreuses pistes d'évolution. Parmi les améliorations prioritaires envisagées :
+
+•	Intégration d'un back-end : le passage vers une architecture client-serveur reposant sur PHP et une base de données MySQL permettrait de gérer les utilisateurs, les commandes et les produits de manière sécurisée et persistante, transformant le prototype actuel en une solution pleinement opérationnelle.
+•	Enrichissement du catalogue : l'élargissement de l'offre à un plus grand nombre d'instruments, de marques et de catégories renforcerait l'attractivité de la plateforme et répondrait à une demande plus large de la clientèle cible.
+•	Système de paiement mobile : l'intégration de solutions de paiement adaptées au contexte congolais, notamment via mobile money, représenterait une avancée majeure pour l'adoption de la plateforme.
+>
+
