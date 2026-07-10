@@ -67,7 +67,7 @@ window.addToCart = function(emoji, name, price) {
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        cart.push({ emoji, name, price, quantity: 1 });
+        cart.push({ emoji, name, price, quantity: 0 });
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));

@@ -23,7 +23,7 @@
                     if (existingItem) {
                         existingItem.quantity += 1;
                     } else {
-                        cart.push({ emoji, name: nomProduit, price: prix, quantity: 1});
+                        cart.push({ emoji, name: nomProduit, price: prix, quantity: 0});
                     }
 
                      // Notification utilisateur
@@ -42,7 +42,7 @@
                 if (existingItem) {
                     existingItem.quantity += 1;
                 } else {
-                    cart.push({ emoji, name, price, quantity: 1 });
+                    cart.push({ emoji, name, price, quantity: 0 });
                 }
 
                 localStorage.setItem('cart', JSON.stringify(cart));
