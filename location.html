@@ -14,7 +14,8 @@
                     <span class="logo-mark">♪</span>
                     <span>Chris &amp; Compagnie</span>
                 </a>
-                <ul>
+                <button class="btn-menu" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="siteMenu" aria-expanded="false">☰</button>
+                <ul id="siteMenu">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="location.html" class="active">Location</a></li>
                     <li><a href="vente.html">Vente</a></li>
@@ -207,6 +208,26 @@
 
             // Initialiser le badge au chargement
             updateBadge();
+
+            // Menu hamburger
+            const menuToggle = document.getElementById('menuToggle');
+            const siteMenu = document.getElementById('siteMenu');
+
+            if (menuToggle && siteMenu) {
+                menuToggle.addEventListener('click', () => {
+                    const isOpen = siteMenu.classList.toggle('open');
+                    menuToggle.setAttribute('aria-expanded', String(isOpen));
+                    menuToggle.textContent = isOpen ? '✕' : '☰';
+                });
+
+                siteMenu.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        siteMenu.classList.remove('open');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        menuToggle.textContent = '☰';
+                    });
+                });
+            }
         </script>
     </body>
 </html>

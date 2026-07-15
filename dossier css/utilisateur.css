@@ -404,18 +404,28 @@ input:focus {
 }
 
 @media (max-width: 900px) {
-    .navbar,
     .profile-hero,
     .account-grid {
         grid-template-columns: 1fr;
     }
 
     .navbar {
-        align-items: flex-start;
-        flex-direction: column;
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .btn-menu {
+        order: 2;
+        margin-left: auto;
     }
 
     .menu {
+        order: 3;
+        flex-basis: 100%;
         justify-content: flex-start;
     }
 

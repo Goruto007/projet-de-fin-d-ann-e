@@ -1,56 +1,56 @@
-// Fonctionnalité d'achat - Intégration panier
-const cartBadge = document.querySelector('.cart-badge');
 
-function getCart() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    return cart.map((item) => ({
-        emoji: item.emoji,
-        name: item.name || item.nomProduit || '',
-        price: Number(item.price ?? item.prix) || 0,
-        quantity: Math.max(1, Number(item.quantity) || 1),
-    }));
-}
+            // Fonctionnalité d'achat - Intégration panier
+            const cartBadge = document.querySelector('.cart-badge');
+            const boutonsAcheter = document.querySelectorAll('.btn-louer');
 
-function saveCart(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
+            // Charger le badge du panier
+            function updateBadge() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cartBadge.textContent = cart.length;
+            }
 
-function getCartCount(cart) {
-    return cart.reduce((count, item) => count + (Number(item.quantity) || 1), 0);
-}
+            boutonsAcheter.forEach(bouton => {
+                bouton.addEventListener('click', function(e) {
+                    const card = e.target.closest('.card');
+                    const emoji = card.querySelector('.card-image').textContent;
+                    const nomProduit = card.querySelector('h3').textContent;
+                    const prix = parseFloat(card.querySelector('.price').textContent.replace('€', '').replace(',', '.'));
 
-// Charger le badge du panier
-function updateBadge() {
-    if (!cartBadge) {
-        return;
-    }
+                    // Ajouter au panier
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const existingItem = cart.find(item => item.name === nomProduit);
 
-    const cart = getCart();
-    cartBadge.textContent = getCartCount(cart);
-}
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({ emoji, name: nomProduit, price: prix, quantity: 1});
+                    }
 
-// Fonction pour ajouter au panier
-window.addToCart = function(emoji, nomProduit, prix) {
-    const cart = getCart();
-    const numericPrice = Number(prix) || 0;
-    const existingItem = cart.find(item => item.name === nomProduit);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateBadge();
+                });
+            });
 
-    if (existingItem) {
-        existingItem.quantity = (Number(existingItem.quantity) || 1) + 1;
-    } else {
-        cart.push({ emoji, name: nomProduit, price: numericPrice, quantity: 1 });
-    }
-     alert(`✓ ${nomProduit} a été ajouté au panier!`);
+            // Initialiser le badge au chargement
+            updateBadge();
 
-    saveCart(cart);
-    updateBadge();
+            // Menu hamburger
+            const menuToggle = document.getElementById('menuToggle');
+            const siteMenu = document.getElementById('siteMenu');
 
-    // Mettre à jour le badge dans tous les onglets
-    window.dispatchEvent(new Event('storage'));
-};
+            if (menuToggle && siteMenu) {
+                menuToggle.addEventListener('click', () => {
+                    const isOpen = siteMenu.classList.toggle('open');
+                    menuToggle.setAttribute('aria-expanded', String(isOpen));
+                    menuToggle.textContent = isOpen ? '✕' : '☰';
+                });
 
-// Initialiser le badge au chargement
-updateBadge();
-
-// Écouter les changements de localStorage
-window.addEventListener('storage', updateBadge);
+                siteMenu.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        siteMenu.classList.remove('open');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        menuToggle.textContent = '☰';
+                    });
+                });
+            }
+        

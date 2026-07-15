@@ -5,28 +5,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Panier d'achat - Chris & Compagnie">
-        <link rel="stylesheet" href="dossier css/panier.css">
+        <link rel="stylesheet" href="../dossier css/panier.css">
         
     </head>
     <body>
-        <header class="site-header">
+        <header>
             <nav class="navbar">
                 <a class="logo" href="index.html" aria-label="Retour à l'accueil">
                     <span class="logo-mark">♪</span>
                     <span>Chris &amp; Compagnie</span>
                 </a>
-                <ul class="menu">
+                <button class="btn-menu" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="siteMenu" aria-expanded="false">☰</button>
+                <ul id="siteMenu">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="location.html">Location</a></li>
                     <li><a href="vente.html">Vente</a></li>
                     <li><a href="maintenance.html">Maintenance</a></li>
                     <li><a href="utilisateur.html">Compte</a></li>
-                    <li class="cart-item">
-                        <a href="panier.html" class="active">
-                            <span class="cart-icon">🛒</span>
-                            <span class="cart-badge">0</span>
-                        </a>
-                    </li>
+                    <li class="cart-item2"><a href="panier.html" class="active"><span class="cart-icon">🛒</span><span class="cart-badge">0</span></a></li>
                 </ul>
             </nav>
         </header>
@@ -68,7 +64,7 @@
                                 <span>Total:</span>
                                 <span id="total">0,00 €</span>
                             </div>
-                            <a href="paiement.html" class="btn-checkout" id="checkout-btn">Procéder au paiement</a>
+                            <button class="btn-checkout" id="checkout-btn">Procéder au paiement</button>
                             <a href="vente.html" class="btn-continue-shopping">Continuer vos achats</a>
                         </div>
                     </div>
@@ -106,68 +102,21 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Email: cymukwkungu@gmail.com</p>
-                    <p>Téléphone: +243 972 693 813</p>
+                    <p>Email: info@musicrent.fr</p>
+                    <p>Téléphone: 01 23 45 67 89</p>
                 </div>
                 <div class="footer-section">
                     <h4>Horaires</h4>
-                    <p>Lundi - samedi: 9h - 18h</p>
-                    <p>Dimanche: 13h - 17h</p>
+                    <p>Lundi - Vendredi: 9h - 18h</p>
+                    <p>Samedi: 10h - 16h</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <p>Facebook | Instagram | Twitter</p>
                 </div>
             </div>
             <p class="copyright">&copy; 2026 Chris & Compagnie. Tous droits réservés.</p>
         </footer>
-
-        
-        <script src="dossier javascript/panier.js"></script>
-        <script>
-             // ============================================
-             // GESTION DU BOUTON PAIEMENT
-             // ============================================
-        const checkoutBtn = document.getElementById('checkout-btn');
-
-        checkoutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-              // Vérifier si le panier est vide
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            if (cart.length === 0) {
-                alert('Votre panier est vide!');
-            return;
-                }
-
-              // Vérifier si l'utilisateur est connecté
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-                
-            if (!currentUser || !currentUser.email) {
-                // L'utilisateur n'est pas connecté
-            const confirmMessage = 'Vous devez être connecté pour accéder au paiement.\n\nVoulez-vous vous connecter maintenant?';
-                    
-            if (confirm(confirmMessage)) {
-                // Rediriger vers la page de connexion
-                window.location.href = 'page_de_connection.html';
-    }
-            return;
-                }
-
-                // L'utilisateur est connecté et le panier n'est pas vide
-                // Rediriger vers la page de paiement
-                window.location.href = 'paiement.html';
-            });
-
-                 // Style du bouton pour indiquer qu'il est interactif
-            checkoutBtn.style.cursor = 'pointer';
-            checkoutBtn.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
-
-            checkoutBtn.addEventListener('mouseenter', () => {
-                checkoutBtn.style.transform = 'translateY(-2px)';
-            });
-
-            checkoutBtn.addEventListener('mouseleave', () => {
-                checkoutBtn.style.transform = 'translateY(0)';
-            });
-        </script>
-           
-     
+        <script src="../dossier javascript/panier .js"></script>
     </body>
 </html>

@@ -49,16 +49,6 @@
     font-weight: bold;
    
 }
-.btn-menu {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-
 /* Classe active */
 .menu.open{
     max-height:300px;
@@ -206,4 +196,3 @@
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
-

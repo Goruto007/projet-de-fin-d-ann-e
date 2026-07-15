@@ -108,4 +108,22 @@ logoutBtn.addEventListener("click", () => {
 
 window.addEventListener("storage", updateCart);
 
+// Menu hamburger
+const menuToggle = document.getElementById("menuToggle");
+const siteMenu = document.getElementById("siteMenu");
 
+if (menuToggle && siteMenu) {
+    menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    siteMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            siteMenu.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.textContent = "☰";
+        });
+    });
+}

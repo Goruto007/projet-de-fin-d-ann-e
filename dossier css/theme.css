@@ -183,6 +183,28 @@ header,
     border: 2px solid rgba(10, 13, 23, 0.95);
 }
 
+/* Bouton menu hamburger (masque par defaut, affiche en media query) */
+.btn-menu {
+    display: none;
+    width: 2.6rem;
+    height: 2.6rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-menu:hover,
+.btn-menu:focus-visible {
+    background: rgba(255, 255, 255, 0.16);
+}
+
 main {
     width: min(var(--max-width), calc(100% - 2rem));
     margin: 0 auto;
@@ -422,15 +444,58 @@ footer,
 @media (max-width: 920px) {
     .navbar,
     .auth-header {
-        align-items: flex-start;
-        flex-direction: column;
+        position: relative;
+        flex-wrap: wrap;
         border-radius: var(--radius-lg);
+    }
+
+    .logo,
+    .brand {
+        order: 1;
+    }
+
+    .btn-menu {
+        display: inline-flex;
+        order: 2;
+        margin-left: auto;
     }
 
     .navbar ul,
     .menu,
     .auth-nav {
+        order: 3;
+        flex-basis: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
         justify-content: flex-start;
+        gap: 0.4rem;
+        max-height: 0;
+        margin-top: 0;
+        padding: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        border-radius: var(--radius-md);
+        transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease, margin-top 0.3s ease;
+    }
+
+    .navbar ul.open,
+    .menu.open,
+    .auth-nav.open {
+        max-height: 480px;
+        margin-top: 0.75rem;
+        padding: 0.75rem;
+        opacity: 1;
+        pointer-events: auto;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar ul li a,
+    .menu a,
+    .auth-nav a {
+        width: 100%;
     }
 }
 
