@@ -100,6 +100,12 @@
                 
             </div>
         </footer>
-        <script src=""></script>   
-    </body>
+        <script>
+            // Fonction pour initialiser le badge du panier
+             function updateBadge() {   
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cartBadge.textContent = cart.length;
+            }
+        </script>   
+    </body> 
 </html>

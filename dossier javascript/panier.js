@@ -1,6 +1,7 @@
 // Gestion du panier
 const cartBadge = document.querySelector('.cart-badge');
 const subtotalEl = document.getElementById('subtotal');
+const shippingEl = document.getElementById('shipping');
 const taxEl = document.getElementById('tax');
 const totalEl = document.getElementById('total');
 const cartContent = document.getElementById('cart-content');
@@ -9,8 +10,8 @@ function getCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     return cart.map((item) => ({
         emoji: item.emoji,
-        name: item.name,
-        price: Number(item.price) || 0,
+        name: item.name || item.nomProduit || '',
+        price: Number(item.price ?? item.prix) || 0,
         quantity: Math.max(1, Number(item.quantity) || 1),
     }));
 }
@@ -23,6 +24,10 @@ function getCartCount(cart) {
     return cart.reduce((count, item) => count + item.quantity, 0);
 }
 
+function getShippingCost(subtotal) {
+    return subtotal > 100 ? 0 : 15;
+}
+
 // Charger le panier depuis le localStorage
 function loadCart() {
     const cart = getCart();
@@ -32,7 +37,7 @@ function loadCart() {
 
 // Mettre à jour l'affichage du panier
 function updateCartDisplay(cart) {
-    if (!cartBadge || !subtotalEl || !taxEl || !totalEl || !cartContent) {
+    if (!cartBadge || !subtotalEl || !shippingEl || !taxEl || !totalEl || !cartContent) {
         return;
     }
 
@@ -46,6 +51,7 @@ function updateCartDisplay(cart) {
             </div>
         `;
         subtotalEl.textContent = '0,00 €';
+        shippingEl.textContent = 'Gratuit';
         taxEl.textContent = '0,00 €';
         totalEl.textContent = '0,00 €';
         return;
@@ -75,28 +81,30 @@ function updateCartDisplay(cart) {
     cartContent.innerHTML = html;
 
     const tax = subtotal * 0.16;
-    const total = subtotal + tax;
+    const shipping = getShippingCost(subtotal);
+    const total = subtotal + shipping + tax;
 
     subtotalEl.textContent = subtotal.toFixed(2) + ' €';
+    shippingEl.textContent = shipping === 0 ? 'Gratuit' : shipping.toFixed(2) + ' €';
     taxEl.textContent = tax.toFixed(2) + ' €';
     totalEl.textContent = total.toFixed(2) + ' €';
 }
 
 // Ajouter au panier (appelé depuis les autres pages)
-window.addToCart = function(emoji, name, price) {
+window.addToCart = function(emoji, nomProduit, prix) {
     const cart = getCart();
-    const numericPrice = Number(price) || 0;
-    const existingItem = cart.find(item => item.name === name);
+    const numericPrice = Number(prix) || 0;
+    const existingItem = cart.find(item => item.name === nomProduit);
 
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        cart.push({ emoji, name, price: numericPrice, quantity: 1 });
+        cart.push({ emoji, name: nomProduit, price: numericPrice, quantity: 1 });
     }
 
     saveCart(cart);
     updateCartDisplay(cart);
-    alert(`${name} a été ajouté au panier!`);
+    alert(`${nomProduit} a été ajouté au panier!`);
 };
 
 // Retirer du panier
