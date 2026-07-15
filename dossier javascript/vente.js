@@ -1,62 +1,55 @@
+// Fonctionnalité d'achat - Intégration panier
+const cartBadge = document.querySelector('.cart-badge');
 
-            // Fonctionnalité d'achat - Intégration panier
-            const cartBadge = document.querySelector('.cart-badge');
-            const boutonsAcheter = document.querySelectorAll('.btn-louer');
+function getCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.map((item) => ({
+        emoji: item.emoji,
+        name: item.name,
+        price: Number(item.price) || 0,
+        quantity: Math.max(1, Number(item.quantity) || 1),
+    }));
+}
 
-            // Charger le badge du panier
-            function updateBadge() {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cartBadge.textContent = cart.length;
-            }
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
-            boutonsAcheter.forEach(bouton => {
-                bouton.addEventListener('click', function(e) {
-                    const card = e.target.closest('.card');
-                    const emoji = card.querySelector('.card-image').textContent;
-                    const nomProduit = card.querySelector('h3').textContent;
-                    const prix = parseFloat(card.querySelector('.price').textContent.replace('€', '').replace(',', '.'));
+function getCartCount(cart) {
+    return cart.reduce((count, item) => count + (Number(item.quantity) || 1), 0);
+}
 
-                    // Ajouter au panier
-                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                    const existingItem = cart.find(item => item.name === nomProduit);
+// Charger le badge du panier
+function updateBadge() {
+    if (!cartBadge) {
+        return;
+    }
 
-                    if (existingItem) {
-                        existingItem.quantity += 1;
-                    } else {
-                        cart.push({ emoji, name: nomProduit, price: prix, quantity: 0});
-                    }
+    const cart = getCart();
+    cartBadge.textContent = getCartCount(cart);
+}
 
-                     // Notification utilisateur
-                     alert(`✓ ${nomProduit} a été ajouté au panier!`);
+// Fonction pour ajouter au panier
+window.addToCart = function(emoji, name, price) {
+    const cart = getCart();
+    const numericPrice = Number(price) || 0;
+    const existingItem = cart.find(item => item.name === name);
 
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    updateBadge();
-                });
-            });
+    if (existingItem) {
+        existingItem.quantity = (Number(existingItem.quantity) || 1) + 1;
+    } else {
+        cart.push({ emoji, name, price: numericPrice, quantity: 1 });
+    }
 
-             // Fonction pour ajouter au panier
-            window.addToCart = function(emoji, name, price) {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                const existingItem = cart.find(item => item.name === name);
+    saveCart(cart);
+    updateBadge();
 
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    cart.push({ emoji, name, price, quantity: 0 });
-                }
+    // Mettre à jour le badge dans tous les onglets
+    window.dispatchEvent(new Event('storage'));
+};
 
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateBadge();
-                
-               
-                
-                // Mettre à jour le badge dans tous les onglets
-                window.dispatchEvent(new Event('storage'));
-            }
+// Initialiser le badge au chargement
+updateBadge();
 
-            // Initialiser le badge au chargement
-            updateBadge();
-
-              // Écouter les changements de localStorage
-            window.addEventListener('storage', updateBadge);
-        
+// Écouter les changements de localStorage
+window.addEventListener('storage', updateBadge);

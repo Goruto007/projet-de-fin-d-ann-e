@@ -5,15 +5,38 @@ const taxEl = document.getElementById('tax');
 const totalEl = document.getElementById('total');
 const cartContent = document.getElementById('cart-content');
 
+function getCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.map((item) => ({
+        emoji: item.emoji,
+        name: item.name,
+        price: Number(item.price) || 0,
+        quantity: Math.max(1, Number(item.quantity) || 1),
+    }));
+}
+
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function getCartCount(cart) {
+    return cart.reduce((count, item) => count + item.quantity, 0);
+}
+
 // Charger le panier depuis le localStorage
 function loadCart() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = getCart();
+    saveCart(cart);
     updateCartDisplay(cart);
 }
 
 // Mettre à jour l'affichage du panier
 function updateCartDisplay(cart) {
-    cartBadge.textContent = cart.length;
+    if (!cartBadge || !subtotalEl || !taxEl || !totalEl || !cartContent) {
+        return;
+    }
+
+    cartBadge.textContent = getCartCount(cart);
 
     if (cart.length === 0) {
         cartContent.innerHTML = `
@@ -39,10 +62,10 @@ function updateCartDisplay(cart) {
                 <div class="item-emoji">${item.emoji}</div>
                 <div class="item-details">
                     <h4>${item.name}</h4>
-                    <p>${item.price.toFixed(2)}€ x <span id="qty-${index}">${item.quantity}</span></p>
+                    <p>${item.price.toFixed(2)} € x <span id="qty-${index}">${item.quantity}</span></p>
                 </div>
                 <div class="item-total">
-                    ${itemTotal.toFixed(2)}€
+                    ${itemTotal.toFixed(2)} €
                 </div>
                 <button class="btn-remove" onclick="removeFromCart(${index})">×</button>
             </div>
@@ -61,64 +84,28 @@ function updateCartDisplay(cart) {
 
 // Ajouter au panier (appelé depuis les autres pages)
 window.addToCart = function(emoji, name, price) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = getCart();
+    const numericPrice = Number(price) || 0;
     const existingItem = cart.find(item => item.name === name);
 
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        cart.push({ emoji, name, price, quantity: 0 });
+        cart.push({ emoji, name, price: numericPrice, quantity: 1 });
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
+    saveCart(cart);
     updateCartDisplay(cart);
     alert(`${name} a été ajouté au panier!`);
-}
+};
 
 // Retirer du panier
 window.removeFromCart = function(index) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = getCart();
     cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    saveCart(cart);
     loadCart();
-}
-
-// Checkout
-document.getElementById('checkout-btn').addEventListener('click', function() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    if (cart.length === 0) {
-        alert('Votre panier est vide!');
-        return;
-    }
-    alert('Redirection vers le paiement...\n\nArticles: ' + cart.length);
-});
+};
 
 // Charger le panier au chargement de la page
 loadCart();
-const checkoutBtn = document.getElementById('checkout-btn');
-
-    checkoutBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        // Vérifier si le panier est vide
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        if (cart.length === 0) {
-            alert('Votre panier est vide!');
-            return;
-        }
-
-        // Vérifier si l'utilisateur est connecté
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        
-        if (!currentUser || !currentUser.email) {
-            if (confirm('Vous devez être connecté pour accéder au paiement.\n\nVoulez-vous vous connecter maintenant?')) {
-                window.location.href = 'page_de_connection.html';
-            }
-            return;
-        }
-
-        // Rediriger vers le paiement
-        window.location.href = 'paiement.html';
-    });
-
-    
