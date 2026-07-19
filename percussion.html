@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>instrument á corde</title>
+        <title>Percussions - Chris &amp; Compagnie</title>
         <meta charset="UTF-8">
-        <meta name="description" content="ici vos instrument á corde">
-        <meta name="keyswords" content="drums,tamtam...">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Découvrez notre sélection de percussions pour la scène, l'étude et les répétitions">
+        <meta name="keywords" content="percussions, batterie, cajon, djembé, congas, bongo, tambourin">
         <meta name="author" content="chris-yohan">
-        <link rel="stylesheet" href="../dossier css/vente.css">  
+        <link rel="stylesheet" href="dossier css/vente.css">
     </head>
     <body>
-        <header>
+        <header class="site-header">
             <nav class="navbar">
                 <a class="logo" href="index.html" aria-label="Retour à l'accueil">
                     <span class="logo-mark">♪</span>
@@ -17,29 +18,172 @@
                 </a>
                 <button class="btn-menu" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="siteMenu" aria-expanded="false">☰</button>
                 <ul class="menu" id="siteMenu">
-                  <li><a href="instrument-a-corde.html" >corde</a></li>
-                  <li><a href="percussion.html" class="active">percussion</a></li> 
-                  <li><a href="instrument-a-vent.html">instrument á vent</a></li> 
-                  <li><a href="instrument-electronique.html">instrument éléctronique</a></li>
-                  <li class="cart-item">
-                    <a href="panier.html" aria-label="Voir le panier">
-                        <span class="cart-icon">🛒</span>
-                        <span class="cart-badge">0</span>
-                    </a>
-                </li>
+                    <li><a href="peripherique-audio.html" >Périphériques audio</a></li>
+                    <li><a href="instrument-a-corde.html">Corde</a></li>
+                    <li><a href="percussion.html" class="active">Percussion</a></li>
+                    <li><a href="instrument-a-vent.html">Instrument à vent</a></li>
+                    <li><a href="instrument-electronique.html">Instrument électronique</a></li>
+                    <li class="cart-item">
+                        <a href="panier.html" aria-label="Voir le panier">
+                            <span class="cart-icon">🛒</span>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
+
         <main>
             <section class="hero">
-                <h1>Chris & Compagnie</h1>
-                <p>voici notre catalogue d'instrument</p>
+                <h1>Percussions</h1>
+                <p>Batteries, cajóns, djembés et accessoires rythmiques pour donner de l'énergie à chaque morceau.</p>
             </section>
-            <section class="categories-grid">
-                                
+
+            <section class="propositions">
+                <h2>Nos percussions en vente</h2>
+                <div class="categories-grid">
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🥁</div>
+                        <h3>Batterie acoustique Studio</h3>
+                        <p class="description">Un kit complet pour le rock, la pop et le jazz avec fûts réglés et cymbales équilibrées.</p>
+                        <div class="specs">
+                            <span>5 fûts</span>
+                            <span>Peaux réglées</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">699,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🥁', 'Batterie acoustique Studio', 699.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🪘</div>
+                        <h3>Cajón Flamenco</h3>
+                        <p class="description">Bois résonant, son net et compact pour accompagner les concerts acoustiques et les sessions unplugged.</p>
+                        <div class="specs">
+                            <span>Compact</span>
+                            <span>Bois</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">89,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🪘', 'Cajón Flamenco', 89.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🪘</div>
+                        <h3>Djembé artisanal</h3>
+                        <p class="description">Une peau naturelle et un fût sculpté pour un son chaleureux, idéal pour l'initiation et la scène.</p>
+                        <div class="specs">
+                            <span>Peau naturelle</span>
+                            <span>Transportable</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">119,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🪘', 'Djembé artisanal', 119.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🪘</div>
+                        <h3>Congas de scène</h3>
+                        <p class="description">Une paire puissante et stable pour la salsa, les ensembles latins et les prestations live.</p>
+                        <div class="specs">
+                            <span>Paire</span>
+                            <span>Très bon</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">299,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🪘', 'Congas de scène', 299.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🪇</div>
+                        <h3>Bongo Duo</h3>
+                        <p class="description">Deux fûts complémentaires pour travailler la précision rythmique et les variations rapides.</p>
+                        <div class="specs">
+                            <span>Débutant</span>
+                            <span>Léger</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">79,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🪇', 'Bongo Duo', 79.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎼</div>
+                        <h3>Timbales d'orchestre</h3>
+                        <p class="description">Une présence puissante et précise pour les ensembles symphoniques et les formations professionnelles.</p>
+                        <div class="specs">
+                            <span>Professionnel</span>
+                            <span>Cuivre</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">449,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎼', 'Timbales d\'orchestre', 449.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🔔</div>
+                        <h3>Tambourin Pro</h3>
+                        <p class="description">Léger, robuste et facile à tenir pour enrichir vos arrangements avec des accents nets et clairs.</p>
+                        <div class="specs">
+                            <span>Scène</span>
+                            <span>Simple rang</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">24,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🔔', 'Tambourin Pro', 24.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🪇</div>
+                        <h3>Pack Maracas &amp; Claves</h3>
+                        <p class="description">Un ensemble simple et efficace pour les ateliers, les spectacles scolaires et la musique latine.</p>
+                        <div class="specs">
+                            <span>Accessoires</span>
+                            <span>Ensemble</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">34,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🪇', 'Pack Maracas &amp; Claves', 34.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="avantages">
+                <h2>Pourquoi choisir nos percussions</h2>
+                <div class="benefits-grid">
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Résonance équilibrée</h4>
+                        <p>Les peaux, fûts et accessoires sont sélectionnés pour offrir un son net et stable.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Robustesse terrain</h4>
+                        <p>Du studio à la scène, nous proposons des modèles solides et faciles à transporter.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Accessoires utiles</h4>
+                        <p>Nous indiquons les éléments inclus pour vous aider à démarrer sans surprise.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Livraison sécurisée</h4>
+                        <p>Chaque percussion est emballée avec soin pour arriver prête à jouer.</p>
+                    </div>
+                </div>
             </section>
         </main>
-         <footer id="contact">
+
+        <footer id="contact">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Contact</h4>
@@ -51,10 +195,9 @@
                     <p>Lundi - samedi: 9h - 18h</p>
                     <p>Dimanche: 13h - 17h</p>
                 </div>
-                
             </div>
-
         </footer>
-        <script src="../dossier javascript/vente.js"></script>
+
+        <script src="dossier javascript/vente.js"></script>
     </body>
 </html>

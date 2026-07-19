@@ -1,90 +1,111 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>Instruments de musique</title>
+        <title>Instruments de musique - Chris &amp; Compagnie</title>
         <meta charset="UTF-8">
-        <meta name="author" content="chris">
-        <meta name="description" content="Découvrez notre sélection d'instruments de musique de qualité professionnelle">
-        <meta name="keywords" content="instruments de musique, guitare, piano, batterie, vente d'instruments">
-        <link rel="stylesheet" href="dossier css/intstrument.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Découvrez nos familles d'instruments de musique : cordes, vents, percussions et électroniques">
+        <meta name="keywords" content="instruments de musique, cordes, vents, percussion, électronique">
+        <meta name="author" content="chris-yohan">
+        <link rel="stylesheet" href="dossier css/vente.css">
     </head>
     <body>
         <header class="site-header">
             <nav class="navbar">
-                 <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+                <a class="logo" href="index.html" aria-label="Retour à l'accueil">
                     <span class="logo-mark">♪</span>
                     <span>Chris &amp; Compagnie</span>
-                 </a>
-
-                <ul>
+                </a>
+                <button class="btn-menu" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="siteMenu" aria-expanded="false">☰</button>
+                <ul class="menu" id="siteMenu">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="location.html">Location</a></li>
                     <li><a href="vente.html" class="active">Vente</a></li>
                     <li><a href="maintenance.html">Maintenance</a></li>
-                    <li><a href="utilisateur.html">compte</a></li>
-                    <li class="cart-item"><a href="panier.html"><span class="cart-icon">🛒</span><span class="cart-badge">0</span></a></li>
+                    <li><a href="utilisateur.html">Compte</a></li>
+                    <li class="cart-item">
+                        <a href="panier.html" aria-label="Voir le panier">
+                            <span class="cart-icon">🛒</span>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
+
         <main>
             <section class="hero">
                 <h1>Instruments de musique</h1>
-                <p>Découvrez notre sélection d'instruments de musique de qualité professionnelle</p>
+                <p>Parcourez nos grandes familles d'instruments et choisissez celle qui correspond à votre style.</p>
             </section>
 
             <section class="propositions">
-                <h2>Nos categories d'instruments à la vente</h2>
-
-                <!-- Grille des catégories -->
+                <h2>Nos catégories en vente</h2>
                 <div class="categories-grid">
-                    
-                        <div class="card">
-                            <div class="card-image">
-                                <img class="image" src="../instrument á vendre//téléchargement.jpg">
-                            </div>
-                            <h2>inststruments á corde</h2>
-                            <p class="description">guitare,violon,ect</p>
-                            <div class="price-section">
-                              <button class="btn-louer"><a href="instrument-a-corde.html">voir ici</a></button>   
-                            </div>
+                    <article class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á vendre/téléchargement.jpg" alt="Instruments à cordes" onerror="this.parentElement.textContent='🎸'">
                         </div>
-                        <div class="card">
-                            <div class="card-image">
-                                <img class="image" src="../instrument á vendre//images.jpg">
-                            </div>
-                            <h2>percussion</h2>
-                            <p class="description">kit drum,tambours,etc</p>
-                            <div class="price-section">
-                                <button class="btn-louer"></button>
-                            </div>
+                        <h3>Instruments à cordes</h3>
+                        <p class="description">Guitares, violons, basses et mandolines pour débuter ou jouer sur scène.</p>
+                        <div class="specs">
+                            <span>Guitare</span>
+                            <span>Violon</span>
                         </div>
-                        <div class="card">
-                            <div class="card-image">
-                                <img class="image" src="../instrument á vendre//téléchargement(2).png">
-                            </div>
-                            <h2>instruments á vent</h2>
-                            <p class="description">flûte,clarinette,ect</p>
-                            <div class="price-section">
-                                <button class="btn-louer"></button>
-                            </div>
+                        <div class="price-section">
+                            <a class="btn-service" style="width: 100%;" href="instrument-a-corde.html">Voir la collection</a>
                         </div>
-                         <div class="card">
-                            <div class="card-image">
-                                <img class="image" src="../instrument á vendre/images (1).jpg">
-                            </div>
-                            <h2>instrument elecrtonique</h2>
-                            <p class="description">synthétiseur,drum pad music,ect</p>
-                            <div class="price-section">
-                                <button class="btn-louer"></button>
-                            </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á vendre/images.jpg" alt="Percussions" onerror="this.parentElement.textContent='🥁'">
                         </div>
+                        <h3>Percussions</h3>
+                        <p class="description">Kits de batterie, tambours et accessoires rythmiques pour donner du relief à vos morceaux.</p>
+                        <div class="specs">
+                            <span>Batterie</span>
+                            <span>Rythme</span>
+                        </div>
+                        <div class="price-section">
+                            <a class="btn-service" style="width: 100%;" href="percussion.html">Découvrir les percussions</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á vendre/téléchargement(2).png" alt="Instruments à vent" onerror="this.parentElement.textContent='🎷'">
+                        </div>
+                        <h3>Instruments à vent</h3>
+                        <p class="description">Flûtes, clarinettes, saxophones et cuivres pour les élèves comme pour les passionnés.</p>
+                        <div class="specs">
+                            <span>Flûte</span>
+                            <span>Saxophone</span>
+                        </div>
+                        <div class="price-section">
+                            <a class="btn-service" style="width: 100%;" href="instrument-a-vent.html">Voir ici</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á vendre/images (1).jpg" alt="Instruments électroniques" onerror="this.parentElement.textContent='🎹'">
+                        </div>
+                        <h3>Instruments électroniques</h3>
+                        <p class="description">Synthétiseurs, pads et claviers modernes pour composer et produire facilement.</p>
+                        <div class="specs">
+                            <span>Synthé</span>
+                            <span>Clavier</span>
+                        </div>
+                        <div class="price-section">
+                            <a class="btn-service" style="width: 100%;" href="instrument-electronique.html">Explorer les électroniques</a>
+                        </div>
+                    </article>
                 </div>
             </section>
-                    
-                    
         </main>
-        <footer>
-             <footer id="contact">
+
+        <footer id="contact">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Contact</h4>
@@ -95,17 +116,10 @@
                     <h4>Horaires</h4>
                     <p>Lundi - samedi: 9h - 18h</p>
                     <p>Dimanche: 13h - 17h</p>
-                    
-                
-                
+                </div>
             </div>
         </footer>
-        <script>
-            // Fonction pour initialiser le badge du panier
-             function updateBadge() {   
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cartBadge.textContent = cart.length;
-            }
-        </script>   
-    </body> 
+
+        <script src="dossier javascript/vente.js"></script>
+    </body>
 </html>

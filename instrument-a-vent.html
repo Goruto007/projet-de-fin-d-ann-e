@@ -1,44 +1,189 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>instrument á corde</title>
+        <title>Instruments à vent - Chris &amp; Compagnie</title>
         <meta charset="UTF-8">
-        <meta name="description" content="ici vos instrument á corde">
-        <meta name="keyswords" content="flute,saxophone,trompette... ">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Découvrez notre sélection d'instruments à vent de qualité pour débutants et musiciens confirmés">
+        <meta name="keywords" content="instruments à vent, flûte, clarinette, saxophone, trompette, trombone, harmonica">
         <meta name="author" content="chris-yohan">
-        <link rel="stylesheet" href="../dossier css/vente.css">  
+        <link rel="stylesheet" href="dossier css/vente.css">
     </head>
     <body>
-        <header>
+        <header class="site-header">
             <nav class="navbar">
                 <a class="logo" href="index.html" aria-label="Retour à l'accueil">
                     <span class="logo-mark">♪</span>
                     <span>Chris &amp; Compagnie</span>
                 </a>
-                <ul class="menu">
-                  <li><a href="instrument-a-corde.html">corde</a></li>
-                  <li><a href="percussion.html">percussion</a></li> 
-                  <li><a href="instrument-a-vent.html" class="active">instrument á vent</a></li> 
-                  <li><a href="instrument-electronique.html">instrument éléctronique</a></li>
-                  <li class="cart-item">
-                    <a href="panier.html" aria-label="Voir le panier">
-                        <span class="cart-icon">🛒</span>
-                        <span class="cart-badge">0</span>
-                    </a>
-                </li>
+                <button class="btn-menu" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="siteMenu" aria-expanded="false">☰</button>
+                <ul class="menu" id="siteMenu">
+                    <li><a href="peripherique-audio.html" >Périphériques audio</a></li>
+                    <li><a href="instrument-a-corde.html">Corde</a></li>
+                    <li><a href="percussion.html">Percussion</a></li>
+                    <li><a href="instrument-a-vent.html" class="active">Instrument à vent</a></li>
+                    <li><a href="instrument-electronique.html">Instrument électronique</a></li>
+                    <li class="cart-item">
+                        <a href="panier.html" aria-label="Voir le panier">
+                            <span class="cart-icon">🛒</span>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
+
         <main>
             <section class="hero">
-                <h1>Chris & Compagnie</h1>
-                <p>voici notre catalogue d'instrument</p>
+                <h1>Instruments à vent</h1>
+                <p>Flûtes, clarinettes, saxophones et cuivres soigneusement sélectionnés pour tous les niveaux.</p>
             </section>
-            <section class="categories-grid">
-                                
+
+            <section class="propositions">
+                <h2>Nos instruments à vent en vente</h2>
+                <div class="categories-grid">
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🪈</div>
+                        <h3>Flûte traversière Étude</h3>
+                        <p class="description">Léger et agréable à jouer, ce modèle convient parfaitement aux premiers cours et aux répétitions.</p>
+                        <div class="specs">
+                            <span>Débutant</span>
+                            <span>Neuf</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">129,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🪈', 'Flûte traversière Étude', 129.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎼</div>
+                        <h3>Clarinette Sib Classique</h3>
+                        <p class="description">Un timbre chaud et précis, idéal pour l'orchestre, la fanfare ou la musique de chambre.</p>
+                        <div class="specs">
+                            <span>Intermédiaire</span>
+                            <span>Réglée</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">179,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎼', 'Clarinette Sib Classique', 179.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎷</div>
+                        <h3>Saxophone Alto Jazz</h3>
+                        <p class="description">Son puissant et chaleureux, livré avec étui et bec de qualité pour jouer immédiatement.</p>
+                        <div class="specs">
+                            <span>Intermédiaire</span>
+                            <span>Excellent</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">329,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎷', 'Saxophone Alto Jazz', 329.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎺</div>
+                        <h3>Trompette Étudiante</h3>
+                        <p class="description">Projection claire et réponse rapide, parfaite pour la fanfare, le jazz et les ensembles.</p>
+                        <div class="specs">
+                            <span>Débutant</span>
+                            <span>Neuf</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">219,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎺', 'Trompette Étudiante', 219.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">📯</div>
+                        <h3>Trombone Ténor</h3>
+                        <p class="description">Une coulisse fluide et un son ample pour les orchestres, brass bands et ateliers de jazz.</p>
+                        <div class="specs">
+                            <span>Confirmé</span>
+                            <span>Très bon</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">279,99€</p>
+                            <button class="btn-louer" onclick="addToCart('📯', 'Trombone Ténor', 279.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎶</div>
+                        <h3>Harmonica Chromatique</h3>
+                        <p class="description">Compact et polyvalent, un compagnon de voyage idéal pour le blues et les morceaux mélodiques.</p>
+                        <div class="specs">
+                            <span>Tous niveaux</span>
+                            <span>Compact</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">49,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎶', 'Harmonica Chromatique', 49.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">📯</div>
+                        <h3>Cor français Concert</h3>
+                        <p class="description">Un son rond et noble, parfait pour l'orchestre, les ensembles à vent et les musiciens avancés.</p>
+                        <div class="specs">
+                            <span>Confirmé</span>
+                            <span>Excellent</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">359,99€</p>
+                            <button class="btn-louer" onclick="addToCart('📯', 'Cor français Concert', 359.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎼</div>
+                        <h3>Hautbois Conservatoire</h3>
+                        <p class="description">Timbre expressif, mécanisme précis et finition soignée pour l'étude et le répertoire classique.</p>
+                        <div class="specs">
+                            <span>Intermédiaire</span>
+                            <span>Très bon</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">259,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎼', 'Hautbois Conservatoire', 259.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="avantages">
+                <h2>Pourquoi choisir nos instruments à vent</h2>
+                <div class="benefits-grid">
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Réglage soigné</h4>
+                        <p>Chaque instrument est vérifié avant expédition pour garantir une bonne prise en main.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Accessoires inclus</h4>
+                        <p>Étui, embouchure ou bec, nous indiquons clairement ce qui accompagne l'instrument.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Conseil personnalisé</h4>
+                        <p>Nous vous aidons à choisir le modèle adapté à votre niveau et à votre budget.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Livraison protégée</h4>
+                        <p>Les instruments voyagent dans un emballage renforcé pour arriver en parfait état.</p>
+                    </div>
+                </div>
             </section>
         </main>
-         <footer id="contact">
+
+        <footer id="contact">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Contact</h4>
@@ -50,10 +195,9 @@
                     <p>Lundi - samedi: 9h - 18h</p>
                     <p>Dimanche: 13h - 17h</p>
                 </div>
-                
             </div>
-
         </footer>
+
         <script src="dossier javascript/vente.js"></script>
     </body>
 </html>

@@ -1,56 +1,71 @@
+const cartBadge = document.querySelector('.cart-badge');
 
-            // Fonctionnalité d'achat - Intégration panier
-            const cartBadge = document.querySelector('.cart-badge');
-            const boutonsAcheter = document.querySelectorAll('.btn-louer');
+function getCart() {
+    try {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        return Array.isArray(cart) ? cart : [];
+    } catch {
+        return [];
+    }
+}
 
-            // Charger le badge du panier
-            function updateBadge() {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cartBadge.textContent = cart.length;
-            }
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
-            boutonsAcheter.forEach(bouton => {
-                bouton.addEventListener('click', function(e) {
-                    const card = e.target.closest('.card');
-                    const emoji = card.querySelector('.card-image').textContent;
-                    const nomProduit = card.querySelector('h3').textContent;
-                    const prix = parseFloat(card.querySelector('.price').textContent.replace('€', '').replace(',', '.'));
+function getCartCount(cart) {
+    return cart.reduce((count, item) => count + (Number(item.quantity) || 1), 0);
+}
 
-                    // Ajouter au panier
-                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                    const existingItem = cart.find(item => item.name === nomProduit);
+function updateBadge() {
+    if (!cartBadge) {
+        return;
+    }
 
-                    if (existingItem) {
-                        existingItem.quantity += 1;
-                    } else {
-                        cart.push({ emoji, name: nomProduit, price: prix, quantity: 1});
-                    }
+    cartBadge.textContent = getCartCount(getCart());
+}
 
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    updateBadge();
-                });
-            });
+window.addToCart = function(emoji, nomProduit, prix) {
+    const cart = getCart();
+    const numericPrice = Number(prix) || 0;
+    const existingItem = cart.find((item) => item.name === nomProduit);
 
-            // Initialiser le badge au chargement
-            updateBadge();
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            emoji: String(emoji || '🎵').trim(),
+            name: nomProduit,
+            price: numericPrice,
+            quantity: 1,
+        });
+    }
 
-            // Menu hamburger
-            const menuToggle = document.getElementById('menuToggle');
-            const siteMenu = document.getElementById('siteMenu');
+    saveCart(cart);
+    updateBadge();
 
-            if (menuToggle && siteMenu) {
-                menuToggle.addEventListener('click', () => {
-                    const isOpen = siteMenu.classList.toggle('open');
-                    menuToggle.setAttribute('aria-expanded', String(isOpen));
-                    menuToggle.textContent = isOpen ? '✕' : '☰';
-                });
+    if (typeof alert === 'function') {
+        alert(`${nomProduit} a été ajouté au panier !`);
+    }
+};
 
-                siteMenu.querySelectorAll('a').forEach((link) => {
-                    link.addEventListener('click', () => {
-                        siteMenu.classList.remove('open');
-                        menuToggle.setAttribute('aria-expanded', 'false');
-                        menuToggle.textContent = '☰';
-                    });
-                });
-            }
-        
+updateBadge();
+
+const menuToggle = document.getElementById('menuToggle');
+const siteMenu = document.getElementById('siteMenu');
+
+if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = siteMenu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    siteMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            siteMenu.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.textContent = '☰';
+        });
+    });
+}

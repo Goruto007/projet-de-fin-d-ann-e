@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Périphériques audio - Chris &amp; Compagnie</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Découvrez notre catalogue de 30 périphériques audio et musicaux pour la scène, le studio et les instruments à cordes">
+        <meta name="keywords" content="périphériques audio, accessoires musique, enceinte, micro, interface audio, support guitare, câble jack">
+        <meta name="author" content="chris-yohan">
+        <link rel="stylesheet" href="dossier css/vente.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <nav class="navbar">
+                <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+                    <span class="logo-mark">♪</span>
+                    <span>Chris &amp; Compagnie</span>
+                </a>
+                <button class="btn-menu" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="siteMenu" aria-expanded="false">☰</button>
+                <ul class="menu" id="siteMenu">
+                    <li><a href="peripherique-audio.html" class="active">Périphériques audio</a></li>
+                    <li><a href="instrument-a-corde.html">Corde</a></li>
+                    <li><a href="percussion.html">Percussion</a></li>
+                    <li><a href="instrument-a-vent.html">Instrument à vent</a></li>
+                    <li><a href="instrument-electronique.html">Instrument électronique</a></li>
+                    <li class="cart-item">
+                        <a href="panier.html" aria-label="Voir le panier">
+                            <span class="cart-icon">🛒</span>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>Périphériques audio</h1>
+                <p>30 périphériques musicaux pensés pour accompagner vos instruments à cordes, vos répétitions et vos sessions studio.</p>
+            </section>
+
+            <section class="propositions">
+                <h2>Notre catalogue de périphériques</h2>
+
+                <div class="categories-grid">
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🔊</div>
+                        <h3>Enceinte active 12 pouces</h3>
+                        <p class="description">Une diffusion puissante et claire pour les répétitions, les concerts et les petites scènes.</p>
+                        <div class="specs">
+                            <span>Actif</span>
+                            <span>240W</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">249,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🔊', 'Enceinte active 12 pouces', 249.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🔉</div>
+                        <h3>Retour de scène 8 pouces</h3>
+                        <p class="description">Compact et orientable pour bien s'entendre sur scène sans encombrer l'espace.</p>
+                        <div class="specs">
+                            <span>Scène</span>
+                            <span>Compact</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">179,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🔉', 'Retour de scène 8 pouces', 179.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎛️</div>
+                        <h3>Moniteur de studio 5 pouces</h3>
+                        <p class="description">Un rendu équilibré pour mixer vos enregistrements et travailler vos maquettes avec précision.</p>
+                        <div class="specs">
+                            <span>Studio</span>
+                            <span>Bi-amplifié</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">129,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎛️', 'Moniteur de studio 5 pouces', 129.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🔊</div>
+                        <h3>Subwoofer studio 8 pouces</h3>
+                        <p class="description">Renforcez les basses de vos morceaux pour mieux contrôler le bas du spectre en production.</p>
+                        <div class="specs">
+                            <span>Basses</span>
+                            <span>Studio</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">299,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🔊', 'Subwoofer studio 8 pouces', 299.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎸</div>
+                        <h3>Amplificateur guitare 40W</h3>
+                        <p class="description">Un combo polyvalent pour travailler à la maison, répéter et obtenir un son propre en groupe.</p>
+                        <div class="specs">
+                            <span>Combo</span>
+                            <span>40W</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">169,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Amplificateur guitare 40W', 169.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎸</div>
+                        <h3>Amplificateur basse 100W</h3>
+                        <p class="description">Des graves solides et une réserve de puissance idéale pour la scène et les répétitions soutenues.</p>
+                        <div class="specs">
+                            <span>Basse</span>
+                            <span>100W</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">279,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Amplificateur basse 100W', 279.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎚️</div>
+                        <h3>Table de mixage 8 canaux</h3>
+                        <p class="description">Connectez micros, instruments et sources audio pour un contrôle simple et immédiat du son.</p>
+                        <div class="specs">
+                            <span>Mixage</span>
+                            <span>8 voies</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">199,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎚️', 'Table de mixage 8 canaux', 199.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎛️</div>
+                        <h3>Interface audio USB 2x2</h3>
+                        <p class="description">Un outil essentiel pour enregistrer guitare, voix ou clavier avec une faible latence.</p>
+                        <div class="specs">
+                            <span>USB</span>
+                            <span>2 entrées</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">149,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎛️', 'Interface audio USB 2x2', 149.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎤</div>
+                        <h3>Micro dynamique scène</h3>
+                        <p class="description">Solide et précis pour capter la voix, les amplis et les répétitions sans bruit parasite.</p>
+                        <div class="specs">
+                            <span>Live</span>
+                            <span>Robuste</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">89,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎤', 'Micro dynamique scène', 89.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎙️</div>
+                        <h3>Micro condensateur studio</h3>
+                        <p class="description">Idéal pour la voix, les cordes et les prises détaillées avec une sensibilité plus fine.</p>
+                        <div class="specs">
+                            <span>Studio</span>
+                            <span>Condensateur</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">119,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎙️', 'Micro condensateur studio', 119.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎙️</div>
+                        <h3>Bras micro articulé</h3>
+                        <p class="description">Un support pratique pour podcast, stream ou enregistrement de bureau avec un positionnement souple.</p>
+                        <div class="specs">
+                            <span>Podcast</span>
+                            <span>Réglable</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">39,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎙️', 'Bras micro articulé', 39.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎙️</div>
+                        <h3>Pied micro réglable</h3>
+                        <p class="description">Stable et pliable, il convient aux scènes, aux répétitions et aux captations à domicile.</p>
+                        <div class="specs">
+                            <span>Pliable</span>
+                            <span>Stable</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">34,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎙️', 'Pied micro réglable', 34.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎙️</div>
+                        <h3>Enregistreur portable 4 pistes</h3>
+                        <p class="description">Capturez des idées, des répétitions et des concerts avec un appareil simple à transporter.</p>
+                        <div class="specs">
+                            <span>Portable</span>
+                            <span>4 pistes</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">179,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎙️', 'Enregistreur portable 4 pistes', 179.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎹</div>
+                        <h3>Contrôleur MIDI 25 touches</h3>
+                        <p class="description">Petit format, pads et molettes de contrôle pour composer rapidement sur ordinateur.</p>
+                        <div class="specs">
+                            <span>MIDI</span>
+                            <span>25 touches</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">99,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎹', 'Contrôleur MIDI 25 touches', 99.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎧</div>
+                        <h3>Casque studio fermé</h3>
+                        <p class="description">Confortable pour le mixage, l'écoute attentive et l'enregistrement en isolement.</p>
+                        <div class="specs">
+                            <span>Fermé</span>
+                            <span>Confort</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">59,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎧', 'Casque studio fermé', 59.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🔌</div>
+                        <h3>Câble jack 3m</h3>
+                        <p class="description">Un câble robuste pour guitare, basse et claviers avec une longueur pratique au quotidien.</p>
+                        <div class="specs">
+                            <span>Jack</span>
+                            <span>3 mètres</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">14,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🔌', 'Câble jack 3m', 14.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🔌</div>
+                        <h3>Câble XLR 5m</h3>
+                        <p class="description">Indispensable pour brancher micros et enceintes avec un signal propre et stable.</p>
+                        <div class="specs">
+                            <span>XLR</span>
+                            <span>5 mètres</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">19,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🔌', 'Câble XLR 5m', 19.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎸</div>
+                        <h3>Support guitare pliable</h3>
+                        <p class="description">Maintenez votre guitare en sécurité à la maison, en studio ou sur scène entre deux morceaux.</p>
+                        <div class="specs">
+                            <span>Pliable</span>
+                            <span>Stable</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">24,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Support guitare pliable', 24.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎹</div>
+                        <h3>Support clavier double</h3>
+                        <p class="description">Un support solide pour les claviers lourds ou les configurations à deux étages.</p>
+                        <div class="specs">
+                            <span>Double</span>
+                            <span>Réglable</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">49,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎹', 'Support clavier double', 49.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎸</div>
+                        <h3>Sangle guitare confort</h3>
+                        <p class="description">Large et rembourrée pour jouer longtemps sans fatigue pendant les répétitions et concerts.</p>
+                        <div class="specs">
+                            <span>Confort</span>
+                            <span>Réglable</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">29,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Sangle guitare confort', 29.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎸</div>
+                        <h3>Capodastre professionnel</h3>
+                        <p class="description">Changez de tonalité rapidement sur guitare acoustique ou électrique sans désaccorder l'instrument.</p>
+                        <div class="specs">
+                            <span>Guitare</span>
+                            <span>Rapide</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">19,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Capodastre professionnel', 19.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">⏱️</div>
+                        <h3>Accordeur clip chromatique</h3>
+                        <p class="description">Petit, précis et facile à lire pour garder vos cordes bien réglées avant chaque session.</p>
+                        <div class="specs">
+                            <span>Clip</span>
+                            <span>Chromatique</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">24,99€</p>
+                            <button class="btn-louer" onclick="addToCart('⏱️', 'Accordeur clip chromatique', 24.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">⏱️</div>
+                        <h3>Métronome numérique</h3>
+                        <p class="description">Travaillez le tempo avec un outil simple pour les répétitions, l'étude et l'échauffement.</p>
+                        <div class="specs">
+                            <span>Tempo</span>
+                            <span>Numérique</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">22,99€</p>
+                            <button class="btn-louer" onclick="addToCart('⏱️', 'Métronome numérique', 22.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎻</div>
+                        <h3>Jeu de cordes acier acoustique</h3>
+                        <p class="description">Des cordes équilibrées pour guitare folk avec une attaque claire et une bonne tenue.</p>
+                        <div class="specs">
+                            <span>Acoustique</span>
+                            <span>Acier</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">11,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎻', 'Jeu de cordes acier acoustique', 11.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎻</div>
+                        <h3>Jeu de cordes nylon classique</h3>
+                        <p class="description">Idéal pour guitare classique avec un toucher souple et un son doux pour le jeu solo.</p>
+                        <div class="specs">
+                            <span>Classique</span>
+                            <span>Nylon</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">12,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎻', 'Jeu de cordes nylon classique', 12.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎸</div>
+                        <h3>Jeu de médiators assortis</h3>
+                        <p class="description">Différentes épaisseurs pour varier l'attaque et trouver la sensation qui vous convient.</p>
+                        <div class="specs">
+                            <span>Assortis</span>
+                            <span>Pack</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">8,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Jeu de médiators assortis', 8.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎸</div>
+                        <h3>Housse guitare matelassée</h3>
+                        <p class="description">Protection légère pour transporter votre guitare avec une bonne résistance aux chocs du quotidien.</p>
+                        <div class="specs">
+                            <span>Protection</span>
+                            <span>Matelassée</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">39,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Housse guitare matelassée', 39.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎚️</div>
+                        <h3>Pédale de sustain</h3>
+                        <p class="description">Un incontournable pour piano numérique et clavier afin d'obtenir un maintien naturel des notes.</p>
+                        <div class="specs">
+                            <span>Clavier</span>
+                            <span>Assignable</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">69,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎚️', 'Pédale de sustain', 69.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">🎛️</div>
+                        <h3>Pédalier compact</h3>
+                        <p class="description">Organisez vos effets et pédales dans une solution compacte et facile à transporter.</p>
+                        <div class="specs">
+                            <span>Effets</span>
+                            <span>Compact</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">74,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎛️', 'Pédalier compact', 74.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image" aria-hidden="true">📦</div>
+                        <h3>DI box active</h3>
+                        <p class="description">Convertit et équilibre le signal pour brancher vos instruments à une console avec fiabilité.</p>
+                        <div class="specs">
+                            <span>Signal</span>
+                            <span>Active</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">89,99€</p>
+                            <button class="btn-louer" onclick="addToCart('📦', 'DI box active', 89.99)">Ajouter au panier</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="avantages">
+                <h2>Pourquoi choisir nos périphériques audio</h2>
+                <div class="benefits-grid">
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Compatibilité musicale</h4>
+                        <p>Les accessoires sont pensés pour accompagner guitare, clavier, micro et matériel de scène.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Qualité pratique</h4>
+                        <p>Nous privilégions les périphériques utiles au quotidien pour jouer, enregistrer et répéter.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Conseil adapté</h4>
+                        <p>Le choix est large, mais nous vous aidons à trouver le bon accessoire selon votre usage.</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Expédition soignée</h4>
+                        <p>Chaque périphérique est préparé et emballé pour arriver prêt à être branché ou installé.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: cymukwkungu@gmail.com</p>
+                    <p>Téléphone: +243 972 693 813</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <p>Lundi - samedi: 9h - 18h</p>
+                    <p>Dimanche: 13h - 17h</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="dossier javascript/vente.js"></script>
+    </body>
+</html>
