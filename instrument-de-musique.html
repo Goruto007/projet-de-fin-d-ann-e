@@ -16,9 +16,7 @@
                     <span>Chris &amp; Compagnie</span>
                  </a>
 
-                <button class="btn-menu" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="siteMenu" aria-expanded="false">☰</button>
-
-                <ul id="siteMenu">
+                <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="location.html">Location</a></li>
                     <li><a href="vente.html" class="active">Vente</a></li>
@@ -102,6 +100,12 @@
                 
             </div>
         </footer>
-        <script src="dossier javascript/vente.js"></script>   
-    </body>
+        <script>
+            // Fonction pour initialiser le badge du panier
+             function updateBadge() {   
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cartBadge.textContent = cart.length;
+            }
+        </script>   
+    </body> 
 </html>

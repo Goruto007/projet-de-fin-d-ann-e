@@ -1,45 +1,279 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>instrument á corde</title>
+        <title>Instruments à corde - Chris & Compagnie</title>
         <meta charset="UTF-8">
-        <meta name="description" content="ici vos instrument á corde">
-        <meta name="keyswords" content="guitare,violon,">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Découvrez notre sélection d'instruments à cordes de qualité professionnelle">
+        <meta name="keywords" content="guitare, violon, instrument à corde, basse, mandoline">
         <meta name="author" content="chris-yohan">
-        <link rel="stylesheet" href="../dossier css/vente.css">  
+        <link rel="stylesheet" href="dossier css/vente.css">  
     </head>
     <body>
-        <header>
+        <header class="site-header">
             <nav class="navbar">
                 <a class="logo" href="index.html" aria-label="Retour à l'accueil">
                     <span class="logo-mark">♪</span>
                     <span>Chris &amp; Compagnie</span>
                 </a>
-                <button class="btn-menu" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="siteMenu" aria-expanded="false">☰</button>
-                <ul class="menu" id="siteMenu">
-                  <li><a href="instrument-a-corde.html" class="active">corde</a></li>
-                  <li><a href="percussion.html">percussion</a></li> 
-                  <li><a href="instrument-a-vent.html">instrument á vent</a></li> 
-                  <li><a href="instrument-electronique.html">instrument éléctronique</a></li>
-                  <li class="cart-item">
-                    <a href="panier.html" aria-label="Voir le panier">
-                        <span class="cart-icon">🛒</span>
-                        <span class="cart-badge">0</span>
-                    </a>
-                </li>
+                <ul class="menu">
+                    <li><a href="instrument-a-corde.html" class="active">Corde</a></li>
+                    <li><a href="percussion.html">Percussion</a></li> 
+                    <li><a href="instrument-a-vent.html">Instrument à vent</a></li> 
+                    <li><a href="instrument-electronique.html">Instrument électronique</a></li>
+                    <li class="cart-item">
+                        <a href="panier.html" aria-label="Voir le panier">
+                            <span class="cart-icon">🛒</span>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
+
         <main>
             <section class="hero">
-                <h1>Chris & Compagnie</h1>
-                <p>voici notre catalogue d'instrument</p>
+                <h1>Instruments à Cordes</h1>
+                <p>Découvrez notre sélection complète d'instruments à cordes de qualité professionnelle</p>
             </section>
-            <section class="categories-grid">
-                                
+
+            <section class="propositions">
+                <h2>Nos instruments à cordes en vente</h2>
+
+                <!-- Grille des produits -->
+                <div class="categories-grid">
+                    
+                    <!-- Guitare Acoustique -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/af9bfce637d513f161e07d448a46b5b9.jpg" alt="Guitare Acoustique" onerror="this.parentElement.textContent='🎸'">
+                        </div>
+                        <h3>Guitare Acoustique Classique</h3>
+                        <p class="description">Guitare 40 pouces, bois de qualité, idéale pour débuter ou progresser</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐ Débutant</span>
+                            <span>État: Neuf</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">89,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Guitare Acoustique Classique', 89.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/b82808d114cb184b62f97b8d7f1e3a76.jpg" alt="Guitare Acoustique" onerror="this.parentElement.textContent='🎸'">
+                        </div>
+                        <h3>Guitare Acoustique electrique</h3>
+                        <p class="description">Guitare 40 pouces, bois de qualité, idéale pour des concerts exterieurs</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐⭐ intermédiaire</span>
+                            <span>État: Neuf</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">99,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Guitare Acoustique electrique', 99.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+                    <!-- Guitare Électrique -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/130b1b7deb1b5d20b5a9fa5f7dbc583c.jpg" alt="Guitare Électrique" onerror="this.parentElement.textContent='⚡🎸'">
+                        </div>
+                        <h3>Guitare Électrique Stratocaster</h3>
+                        <p class="description">Guitare électrique performante, ampli inclus, parfaite pour le rock</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐⭐ Intermédiaire</span>
+                            <span>État: Excellent</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">149,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Guitare Électrique Stratocaster', 149.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- guitard professionnelle -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/591eb1d448599d121eede6d8503360ff.jpg" alt="Ukulélé" onerror="this.parentElement.textContent='🎸'">
+                        </div>
+                        <h3>Guitard pro </h3>
+                        <p class="description">guitard pro electrique, avec effet integre</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐⭐⭐⭐ professionnelle</span>
+                            <span>État: neuf</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">299,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Guitard pro', 299.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Violon -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/03c0724ce79d7f218f96d9f59d61cdb6.jpg" alt="Violon" onerror="this.parentElement.textContent='🎻'">
+                        </div>
+                        <h3>Violon 4/4 Professionnel</h3>
+                        <p class="description">Violon de qualité avec archet et étui, son cristallin et puissant</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐⭐⭐ Confirmé</span>
+                            <span>État: Excellent</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">199,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎻', 'Violon 4/4 Professionnel', 199.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                     <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/f7f4cffb768946d06759bfed4cf8774b.jpg" alt="Violon débutant" onerror="this.parentElement.textContent='🎻'">
+                        </div>
+                        <h3>Violon 4/4 Débutant  </h3>
+                        <p class="description">Violon de qualité pour les apprentit</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐ Débutant</span>
+                            <span>État: Excellent</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">49,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎻', 'Violon 4/4 debutant', 49.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                  
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/basse-electrique.jpg" alt="Basse Électrique" onerror="this.parentElement.textContent='🎸'">
+                        </div>
+                        <h3>Basse Électrique 4 Cordes</h3>
+                        <p class="description">Basse Fender Precision, son profond, idéale pour le jazz et le funk</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐⭐ Intermédiaire</span>
+                            <span>État: Neuf</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">179,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Basse Électrique 4 Cordes', 179.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                   
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/mandoline.jpg" alt="Mandoline" onerror="this.parentElement.textContent='🎶'">
+                        </div>
+                        <h3>Mandoline Italienne</h3>
+                        <p class="description">Mandoline 8 cordes, son lumineux, traditionnelle et populaire</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐ Intermédiaire</span>
+                            <span>État: Très bon</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">129,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎶', 'Mandoline Italienne', 129.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                 
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/banjo.jpg" alt="Banjo" onerror="this.parentElement.textContent='🪕'">
+                        </div>
+                        <h3>Banjo 5 Cordes Bluegrass</h3>
+                        <p class="description">Banjo authentique, son percutant et caractéristique, idéal pour folk</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐ Intermédiaire</span>
+                            <span>État: Excellent</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">159,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🪕', 'Banjo 5 Cordes Bluegrass', 159.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/harpe.jpg" alt="Harpe" onerror="this.parentElement.textContent='🎵'">
+                        </div>
+                        <h3>Harpe Celtique Portable</h3>
+                        <p class="description">Harpe 22 cordes, son envoûtant, transportable et facile à jouer</p>
+                        <div class="specs">
+                            <span>⭐⭐ Débutant</span>
+                            <span>État: Neuf</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">219,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎵', 'Harpe Celtique Portable', 219.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+               
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/luth.jpg" alt="Luth" onerror="this.parentElement.textContent='🎸'">
+                        </div>
+                        <h3>Luth Renaissance 8 Cordes</h3>
+                        <p class="description">Luth traditionnel, son délicat et subtil, idéal pour musique classique</p>
+                        <div class="specs">
+                            <span>⭐⭐⭐⭐⭐ Expert</span>
+                            <span>État: Excellent</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">249,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎸', 'Luth Renaissance 8 Cordes', 249.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                  
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="image" src="instrument á corde/57003f5fb915e5ca44eec3347a4c4ed7.webp.jpg" alt="Mediatords" onerror="this.parentElement.textContent='🎼'">
+                        </div>
+                        <h3>Mediator</h3>
+                        <p class="description"></p>
+                        <div class="specs">
+                            <span>⭐⭐⭐ Intermédiaire</span>
+                            <span>État: Neuf</span>
+                        </div>
+                        <div class="price-section">
+                            <p class="price">9,99€</p>
+                            <button class="btn-louer" onclick="addToCart('🎼', 'mediators', 9.99)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="avantages">
+                <h2>Pourquoi acheter chez nous</h2>
+                <div class="benefits-grid">
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Instruments certifiés</h4>
+                        <p>Tous nos instruments sont testés et certifiés authentiques</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Garantie 2 ans</h4>
+                        <p>Garantie complète sur tous les instruments vendus</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Livraison gratuite</h4>
+                        <p>Livraison gratuite pour les commandes supérieures à 100€</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">✓</div>
+                        <h4>Conseil d'experts</h4>
+                        <p>Nos experts sont là pour vous conseiller dans votre achat</p>
+                    </div>
+                </div>
             </section>
         </main>
-         <footer id="contact">
+
+        <footer id="contact">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Contact</h4>
@@ -51,10 +285,10 @@
                     <p>Lundi - samedi: 9h - 18h</p>
                     <p>Dimanche: 13h - 17h</p>
                 </div>
-                
             </div>
-
         </footer>
-        <script src="../dossier javascript/vente.js"></script>
+
+        <script src="dossier javascript/vente.js"></script>
+       
     </body>
 </html>
