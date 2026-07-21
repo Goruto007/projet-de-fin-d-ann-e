@@ -81,7 +81,7 @@ function calculateTotals(cart) {
     
     document.getElementById('summary-subtotal').textContent = subtotal.toFixed(2) + ' fc';
     document.getElementById('summary-tax').textContent = tax.toFixed(2) + ' fc';
-    document.getElementById('summary-total').textContent = total.toFixed(2) + ' fc';
+    document.getElementById('summary-total').textContent = (subtotal + tax).toFixed(2) + ' fc';
 }
 
 function showEmptyCart() {
