@@ -67,8 +67,8 @@ function displayOrderItems(cart) {
                 </div>
             </div>
             <div class="item-price">
-                <span class="price">${(item.price * item.quantity).toFixed(2)} €</span>
-                <span class="unit-price">(${item.price.toFixed(2)} € x ${item.quantity})</span>
+                <span class="price">${(item.price * item.quantity).toFixed(2)} fc</span>
+                <span class="unit-price">(${item.price.toFixed(2)} fc x ${item.quantity})</span>
             </div>
         `;
         orderItemsContainer.appendChild(itemElement);
@@ -76,15 +76,12 @@ function displayOrderItems(cart) {
 }
 
 function calculateTotals(cart) {
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const shipping = subtotal > 100 ? 0 : 15; // Frais de livraison si < 100€
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);  
     const tax = subtotal * 0.16;
-    const total = subtotal + shipping + tax;
     
-    document.getElementById('summary-subtotal').textContent = subtotal.toFixed(2) + ' €';
-    document.getElementById('summary-shipping').textContent = shipping === 0 ? 'Gratuit' : shipping.toFixed(2) + ' €';
-    document.getElementById('summary-tax').textContent = tax.toFixed(2) + ' €';
-    document.getElementById('summary-total').textContent = total.toFixed(2) + ' €';
+    document.getElementById('summary-subtotal').textContent = subtotal.toFixed(2) + ' fc';
+    document.getElementById('summary-tax').textContent = tax.toFixed(2) + ' fc';
+    document.getElementById('summary-total').textContent = total.toFixed(2) + ' fc';
 }
 
 function showEmptyCart() {
@@ -237,26 +234,7 @@ function validateField(field) {
 }
 
 // Validation du numéro de carte (algorithme de Luhn)
-function isValidCardNumber(cardNumber) {
-    let sum = 0;
-    let isEven = false;
 
-    for (let i = cardNumber.length - 1; i >= 0; i--) {
-        let digit = parseInt(cardNumber[i], 10);
-
-        if (isEven) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
-            }
-        }
-
-        sum += digit;
-        isEven = !isEven;
-    }
-
-    return sum % 10 === 0;
-}
 
 // Vérifier si la carte est expirée
 function isValidExpiry(expiry) {
@@ -300,11 +278,7 @@ function setupFormSubmission() {
         const inputs = paymentForm.querySelectorAll('input[required]');
         let isFormValid = true;
 
-        inputs.forEach(input => {
-            if (!validateField(input)) {
-                isFormValid = false;
-            }
-        });
+        
 
         // Vérifier les conditions
         const termsCheckbox = document.getElementById('terms');

@@ -50,10 +50,10 @@ function updateCartDisplay(cart) {
                 <a href="vente.html" class="btn-continue">Continuer vos achats</a>
             </div>
         `;
-        subtotalEl.textContent = '0,00 €';
+        subtotalEl.textContent = '0,00 fc';
         shippingEl.textContent = 'Gratuit';
-        taxEl.textContent = '0,00 €';
-        totalEl.textContent = '0,00 €';
+        taxEl.textContent = '0,00 fc';
+        totalEl.textContent = '0,00 fc';
         return;
     }
 
@@ -68,10 +68,10 @@ function updateCartDisplay(cart) {
                 <div class="item-emoji">${item.emoji}</div>
                 <div class="item-details">
                     <h4>${item.name}</h4>
-                    <p>${item.price.toFixed(2)} € x <span id="qty-${index}">${item.quantity}</span></p>
+                    <p>${item.price.toFixed(2)} fc x <span id="qty-${index}">${item.quantity}</span></p>
                 </div>
                 <div class="item-total">
-                    ${itemTotal.toFixed(2)} €
+                    ${itemTotal.toFixed(2)} fc
                 </div>
                 <button class="btn-remove" onclick="removeFromCart(${index})">×</button>
             </div>
@@ -84,10 +84,9 @@ function updateCartDisplay(cart) {
     const shipping = getShippingCost(subtotal);
     const total = subtotal + shipping + tax;
 
-    subtotalEl.textContent = subtotal.toFixed(2) + ' €';
-    shippingEl.textContent = shipping === 0 ? 'Gratuit' : shipping.toFixed(2) + ' €';
-    taxEl.textContent = tax.toFixed(2) + ' €';
-    totalEl.textContent = total.toFixed(2) + ' €';
+    subtotalEl.textContent = subtotal.toFixed(2) + ' fc';
+    taxEl.textContent = tax.toFixed(2) + ' fc';
+    totalEl.textContent = total.toFixed(2) + ' fc';
 }
 
 // Ajouter au panier (appelé depuis les autres pages)
@@ -105,6 +104,9 @@ window.addToCart = function(emoji, nomProduit, prix) {
     saveCart(cart);
     updateCartDisplay(cart);
     alert(`${nomProduit} a été ajouté au panier!`);
+
+    
+
 };
 
 // Retirer du panier
@@ -114,6 +116,24 @@ window.removeFromCart = function(index) {
     saveCart(cart);
     loadCart();
 };
-
 // Charger le panier au chargement de la page
 loadCart();
+// Menu hamburger
+const menuToggle = document.getElementById('menuToggle');
+const siteMenu = document.getElementById('siteMenu');
+
+if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = siteMenu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    siteMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            siteMenu.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.textContent = '☰';
+        });
+     });
+}

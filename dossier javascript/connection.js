@@ -44,18 +44,17 @@ function enregistrerUtilisateur() {
     };
 
     const users = getUsers();
-    const existingIndex = users.find((user) => user.email === nouvelUtilisateur.email);
+    const verification = users.find((user) => user.email === nouvelUtilisateur.email);
 
-    if (existingIndex) {
-        users[existingIndex] = nouvelUtilisateur;
-        alert("Votre utilisateur connectez vous")
+    if (verification) {
+        users[verification] = nouvelUtilisateur;
+        alert("cette email est deja utilisé")
     } else {
         users.push(nouvelUtilisateur);
     }
 
     saveUsers(users);
     localStorage.setItem("currentUser", JSON.stringify(nouvelUtilisateur));
-    localStorage.setItem('currentUser', JSON.stringify(user));
     return nouvelUtilisateur;
 }
 
